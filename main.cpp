@@ -55,6 +55,28 @@ void bindec (string a)
     }
     cout<<a<<"(bin) = "<<valeur<<"(dec)"<<endl;
 }
+void binoctal (string a)
+{
+    int valeur=0;
+    int index=0;//a corriger
+    string result;
+    int i= a.length();
+    if(i%3 == 0)
+    {
+    do
+    {
+      for(int j=i-1;j>i/3;j--)
+        {
+            if(a[j] == '1')
+            valeur += pow(2,index);
+        index++;
+        }
+        result+=valeur;//a corriger
+    }while(i-1<0);
+
+    }
+    cout<<a<<"(bin) = "<<valeur<<"(oct)"<<endl;
+}
 
 void menuchoixUn()
 {
@@ -62,6 +84,7 @@ void menuchoixUn()
 	cout<<"2……………. Binaire en"<<endl;
 	cout<<"3……………. Hexad"<<char(130)<<"cimal en"<<endl;
 }
+//a ne pas oublier de gerer les erreurs de saisies
 int main()
 {
     int choix1,choix2,choix3;
@@ -126,9 +149,9 @@ int main()
                             }break;
                        case 2:
                             {
-                                cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en octal: ";
-                               cin>>valeurChoisi;
-                               decoctal(valeurChoisi);
+                                cout<<"Entrez le binaire que vous voulez mettre en octal: ";
+                               cin>>valeurBinaire;
+                               binoctal(valeurBinaire);
                             }break;
                        case 3:
                             {
