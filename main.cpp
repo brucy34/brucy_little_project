@@ -45,9 +45,39 @@ void decbin (int a)
 }
 void decoctal (int a)
 {
-    char res[1000];
-    itoa(a,res,8);
-    cout<<a<<"(dec) = "<<res<<"(oct)"<<endl;
+    int x=a,y=a;
+
+    string res,text;
+    for(int i=a;x>=8;i++)
+    {
+        y=x%8;
+        if(y==0)
+            text="0";
+        else if(y==1)
+            text="1";
+        else if(y==2)
+            text="2";
+        else if(y==3)
+            text="3";
+        else if(y==4)
+            text="4";
+        else if(y==5)
+            text="5";
+        else if(y==6)
+            text="6";
+        else if(y==7)
+            text="7";
+        res+=text;
+        x=x/8;
+    }
+    if(x==0)
+            text="0";
+        else
+            text="1";
+        res+=text;
+    string res_reversed(res);
+    reverse(res_reversed.begin(),res_reversed.end());
+    cout<<a<<"(dec) = "<<res_reversed<<"(oct)"<<endl;
 }
 void dechexa (int a)
 {
