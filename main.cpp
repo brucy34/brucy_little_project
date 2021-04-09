@@ -72,8 +72,20 @@ void decoctal (int a)
     }
     if(x==0)
             text="0";
-        else
+    else if(x==1)
             text="1";
+    else if(x==2)
+            text="2";
+    else if(x==3)
+            text="3";
+    else if(x==4)
+            text="4";
+    else if(x==5)
+            text="5";
+    else if(x==6)
+            text="6";
+    else if(x==7)
+            text="7";
         res+=text;
     string res_reversed(res);
     reverse(res_reversed.begin(),res_reversed.end());
@@ -124,8 +136,36 @@ void dechexa (int a)
     }
     if(x==0)
             text="0";
-        else
+    else if(x==1)
             text="1";
+    else if(x==2)
+            text="2";
+    else if(x==3)
+            text="3";
+    else if(x==4)
+            text="4";
+    else if(x==5)
+            text="5";
+    else if(x==6)
+            text="6";
+    else if(x==7)
+            text="7";
+    else if(x==8)
+            text="8";
+    else if(x==9)
+            text="9";
+    else if(x==10)
+            text="A";
+    else if(x==11)
+            text="B";
+    else if(x==12)
+            text="C";
+    else if(x==13)
+            text="D";
+    else if(x==14)
+            text="E";
+    else if(x==15)
+            text="F";
         res+=text;
     string res_reversed(res);
     reverse(res_reversed.begin(),res_reversed.end());
@@ -141,11 +181,17 @@ void bindec (string a)
 {
     int valeur=0;
     int index=0;
+    string text;
     for(int i=a.length()-1; i>=0; i--)
     {
         if(a[i] == '1')
+        {
             valeur += pow(2,index);
+            text+=valeur;
+        }
+
         index++;
+
     }
     cout<<a<<"(bin) = "<<valeur<<"(dec)"<<endl;
 }
@@ -153,7 +199,7 @@ void binoctal (string a)
 {
     int valeur=0;
     int index=0;//a corriger
-    string result;
+    string result,text;
     int i= a.length();
     if(i%3 == 0)
     {
@@ -162,14 +208,34 @@ void binoctal (string a)
       for(int j=i-1;j>i/3;j--)
         {
             if(a[j] == '1')
-            valeur += pow(2,index);
+            {
+                valeur += pow(2,index);
+    if(valeur==0)
+            text="0";
+    else if(valeur==1)
+            text="1";
+    else if(valeur==2)
+            text="2";
+    else if(valeur==3)
+            text="3";
+    else if(valeur==4)
+            text="4";
+    else if(valeur==5)
+            text="5";
+    else if(valeur==6)
+            text="6";
+    else if(valeur==7)
+            text="7";
+                result+=text;//a corriger
+            }
+
         index++;
         }
-        result+=valeur;//a corriger
+
     }while(i-1<0);
 
     }
-    cout<<a<<"(bin) = "<<valeur<<"(oct)"<<endl;
+    cout<<a<<"(bin) = "<<result<<"(oct)"<<endl;
 }
 
 void menuchoixUn()
