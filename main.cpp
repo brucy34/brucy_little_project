@@ -21,9 +21,27 @@ void choice()
 
 void decbin (int a)
 {
-    char res[1000];
-    itoa(a,res,2);
-    cout<<a<<"(dec) = "<<res<<"(bin)"<<endl;
+    int x=a,y=a;
+
+    string res,text;
+    for(int i=a;x>=2;i++)
+    {
+        y=x%2;
+        if(y==0)
+            text="0";
+        else
+            text="1";
+        res+=text;
+        x=x/2;
+    }
+    if(x==0)
+            text="0";
+        else
+            text="1";
+        res+=text;
+    string res_reversed(res);
+    reverse(res_reversed.begin(),res_reversed.end());
+    cout<<a<<"(dec) = "<<res_reversed<<"(bin)"<<endl;
 }
 void decoctal (int a)
 {
@@ -84,7 +102,7 @@ void menuchoixUn()
 	cout<<"2……………. Binaire en"<<endl;
 	cout<<"3……………. Hexad"<<char(130)<<"cimal en"<<endl;
 }
-//a ne pas oublier de gerer les erreurs de saisies
+//a ne pas oublier de gerer les erreurs de saisies+
 int main()
 {
     int choix1,choix2,choix3;
