@@ -24,7 +24,7 @@ void decbin (int a)
     int x=a,y=a;
 
     string res,text;
-    for(int i=a;x>=2;i++)
+    do
     {
         y=x%2;
         if(y==0)
@@ -33,8 +33,8 @@ void decbin (int a)
             text="1";
         res+=text;
         x=x/2;
-    }
-    if(x==0)
+    }while(x>=1);
+        if(x==0)
             text="0";
         else
             text="1";
@@ -48,7 +48,7 @@ void decoctal (int a)
     int x=a,y=a;
 
     string res,text;
-    for(int i=a;x>=8;i++)
+    do
     {
         y=x%8;
         if(y==0)
@@ -69,22 +69,22 @@ void decoctal (int a)
             text="7";
         res+=text;
         x=x/8;
-    }
-    if(x==0)
+    }while(x>=7);
+        if(x==0)
             text="0";
-    else if(x==1)
+        else if(x==1)
             text="1";
-    else if(x==2)
+        else if(x==2)
             text="2";
-    else if(x==3)
+        else if(x==3)
             text="3";
-    else if(x==4)
+        else if(x==4)
             text="4";
-    else if(x==5)
+        else if(x==5)
             text="5";
-    else if(x==6)
+        else if(x==6)
             text="6";
-    else if(x==7)
+        else if(x==7)
             text="7";
         res+=text;
     string res_reversed(res);
@@ -96,7 +96,7 @@ void dechexa (int a)
     int x=a,y=a;
 
     string res,text;
-    for(int i=a;x>=16;i++)
+    do
     {
         y=x%16;
         if(y==0)
@@ -133,40 +133,39 @@ void dechexa (int a)
             text="F";
         res+=text;
         x=x/16;
-    }
+    }while(x>=15);
     if(x==0)
             text="0";
-    else if(x==1)
+        else if(x==1)
             text="1";
-    else if(x==2)
+        else if(x==2)
             text="2";
-    else if(x==3)
+        else if(x==3)
             text="3";
-    else if(x==4)
+        else if(x==4)
             text="4";
-    else if(x==5)
+        else if(x==5)
             text="5";
-    else if(x==6)
+        else if(x==6)
             text="6";
-    else if(x==7)
+        else if(x==7)
             text="7";
-    else if(x==8)
+        else if(x==8)
             text="8";
-    else if(x==9)
+        else if(x==9)
             text="9";
-    else if(x==10)
+        else if(x==10)
             text="A";
-    else if(x==11)
+        else if(x==11)
             text="B";
-    else if(x==12)
+        else if(x==12)
             text="C";
-    else if(x==13)
+        else if(x==13)
             text="D";
-    else if(x==14)
+        else if(x==14)
             text="E";
-    else if(x==15)
+        else if(x==15)
             text="F";
-        res+=text;
     string res_reversed(res);
     reverse(res_reversed.begin(),res_reversed.end());
     cout<<a<<"(dec) = "<<res_reversed<<"(hexa)"<<endl;
@@ -181,61 +180,78 @@ void bindec (string a)
 {
     int valeur=0;
     int index=0;
-    string text;
     for(int i=a.length()-1; i>=0; i--)
     {
         if(a[i] == '1')
         {
             valeur += pow(2,index);
-            text+=valeur;
         }
 
         index++;
 
     }
+
     cout<<a<<"(bin) = "<<valeur<<"(dec)"<<endl;
 }
 void binoctal (string a)
 {
     int valeur=0;
-    int index=0;//a corriger
-    string result,text;
-    int i= a.length();
-    if(i%3 == 0)
+    int index=0;
+    for(int i=a.length()-1; i>=0; i--)
     {
-    do
-    {
-      for(int j=i-1;j>i/3;j--)
+        if(a[i] == '1')
         {
-            if(a[j] == '1')
-            {
-                valeur += pow(2,index);
-    if(valeur==0)
-            text="0";
-    else if(valeur==1)
-            text="1";
-    else if(valeur==2)
-            text="2";
-    else if(valeur==3)
-            text="3";
-    else if(valeur==4)
-            text="4";
-    else if(valeur==5)
-            text="5";
-    else if(valeur==6)
-            text="6";
-    else if(valeur==7)
-            text="7";
-                result+=text;//a corriger
-            }
-
-        index++;
+            valeur += pow(2,index);
         }
 
-    }while(i-1<0);
+        index++;
 
     }
-    cout<<a<<"(bin) = "<<result<<"(oct)"<<endl;
+    int x=valeur,y=valeur;
+
+    string res,text;
+    do
+    {
+        y=x%8;
+        if(y==0)
+            text="0";
+        else if(y==1)
+            text="1";
+        else if(y==2)
+            text="2";
+        else if(y==3)
+            text="3";
+        else if(y==4)
+            text="4";
+        else if(y==5)
+            text="5";
+        else if(y==6)
+            text="6";
+        else if(y==7)
+            text="7";
+        res+=text;
+        x=x/8;
+    }while(x>=7);
+    if(x==0)
+            text="0";
+        else if(x==1)
+            text="1";
+        else if(x==2)
+            text="2";
+        else if(x==3)
+            text="3";
+        else if(x==4)
+            text="4";
+        else if(x==5)
+            text="5";
+        else if(x==6)
+            text="6";
+        else if(x==7)
+            text="7";
+        res+=text;
+     string res_reversed(res);
+    reverse(res_reversed.begin(),res_reversed.end());
+    cout<<a<<"(bin) = "<<res_reversed<<"(oct)"<<endl;
 }
 
 void menuchoixUn()
