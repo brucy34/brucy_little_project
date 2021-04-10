@@ -545,6 +545,13 @@ void menuchoixUn()
 	cout<<"2……………. Binaire en"<<endl;
 	cout<<"3……………. Hexad"<<char(130)<<"cimal en"<<endl;
 }
+void menuChoixDeux()
+{
+    cout<<"1......... Carr"<<char(130)<<" magique d'ordre pair"<<endl;
+    cout<<"2......... Multiplication de deux matrices"<<endl;
+    cout<<"3......... R"<<char(130)<<"solution d'un syst"<<char(138)<<"me d'"<<char(130)<<"quation "<<char(133)<<" deux inconnues."<<endl;
+    cout<<"4......... Le d"<<char(130)<<"terminant et le tranpos"<<char(130)<<"e d'une matrice quelconque."<<endl;
+}
 // fonction pour demander a l'utilisateur s'il veut continuer ou retourner
 
 void retour (int a)
@@ -738,11 +745,13 @@ int main()
                             }break;
                       }
                }break;
-
-
-
             }break;
-        }
+        }break;
+    case 2:
+           {
+               menuChoixDeux();
+               cin>>choix1;
+           }break;
     }
 }while(choix1<=0 || choix1>=5);
     //system("cls");
