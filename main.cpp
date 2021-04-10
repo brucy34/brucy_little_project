@@ -166,6 +166,7 @@ void dechexa (int a)
             text="E";
         else if(x==15)
             text="F";
+        res+=text;
     string res_reversed(res);
     reverse(res_reversed.begin(),res_reversed.end());
     cout<<a<<"(dec) = "<<res_reversed<<"(hexa)"<<endl;
@@ -345,6 +346,198 @@ void binHex(string a)//A redefinir
     reverse(res_reversed.begin(),res_reversed.end());
     cout<<a<<"(bin) = "<<res_reversed<<"(hex)"<<endl;
 }
+//fonction hexadecimal to decimal
+void hexadec (string a)
+{
+    int valeur=0;
+    int index=0;
+    for(int i=a.length()-1; i>=0; i--)
+    {
+        if(a[i] == '1')
+            valeur += pow(16,index);
+        else if(a[i] == '2')
+            valeur += 2*pow(16,index);
+        else if(a[i] == '3')
+            valeur += 3*pow(16,index);
+        else if(a[i] == '4')
+            valeur += 4*pow(16,index);
+        else if(a[i] == '5')
+            valeur += 5*pow(16,index);
+        else if(a[i] == '6')
+            valeur += 6*pow(16,index);
+        else if(a[i] == '7')
+            valeur += 7*pow(16,index);
+        else if(a[i] == '8')
+            valeur += 8*pow(16,index);
+        else if(a[i] == '9')
+            valeur += 9*pow(16,index);
+        else if(a[i] == 'a')
+            valeur += 10*pow(16,index);
+        else if(a[i] == 'b')
+            valeur += 11*pow(16,index);
+        else if(a[i] == 'c')
+            valeur += 12*pow(16,index);
+        else if(a[i] == 'd')
+            valeur += 13*pow(16,index);
+        else if(a[i] == 'e')
+            valeur += 14*pow(16,index);
+        else if(a[i] == 'f')
+            valeur += 15*pow(16,index);
+        index++;
+
+    }
+
+    cout<<a<<"(hex) = "<<valeur<<"(dec)"<<endl;
+}
+//fontion hexadecimmal to bin
+void hexabin(string a)
+{
+    int valeur=0;
+    int index=0;
+    for(int i=a.length()-1; i>=0; i--)
+    {
+        if(a[i] == '1')
+            valeur += pow(16,index);
+        else if(a[i] == '2')
+            valeur += 2*pow(16,index);
+        else if(a[i] == '3')
+            valeur += 3*pow(16,index);
+        else if(a[i] == '4')
+            valeur += 4*pow(16,index);
+        else if(a[i] == '5')
+            valeur += 5*pow(16,index);
+        else if(a[i] == '6')
+            valeur += 6*pow(16,index);
+        else if(a[i] == '7')
+            valeur += 7*pow(16,index);
+        else if(a[i] == '8')
+            valeur += 8*pow(16,index);
+        else if(a[i] == '9')
+            valeur += 9*pow(16,index);
+        else if(a[i] == 'a')
+            valeur += 10*pow(16,index);
+        else if(a[i] == 'b')
+            valeur += 11*pow(16,index);
+        else if(a[i] == 'c')
+            valeur += 12*pow(16,index);
+        else if(a[i] == 'd')
+            valeur += 13*pow(16,index);
+        else if(a[i] == 'e')
+            valeur += 14*pow(16,index);
+        else if(a[i] == 'f')
+            valeur += 15*pow(16,index);
+        index++;
+
+    }
+    int x=valeur,y=valeur;
+
+    string res,text;
+    do
+    {
+        y=x%2;
+        if(y==0)
+            text="0";
+        else
+            text="1";
+        res+=text;
+        x=x/2;
+    }while(x>=1);
+        if(x==0)
+            text="0";
+        else
+            text="1";
+        res+=text;
+    string res_reversed(res);
+    reverse(res_reversed.begin(),res_reversed.end());
+    cout<<a<<"(hex) = "<<res_reversed<<"(bin)"<<endl;
+
+}
+//fonction hexadecimal to octal
+void hexoct(string a)
+{
+    int valeur=0;
+    int index=0;
+    for(int i=a.length()-1; i>=0; i--)
+    {
+        if(a[i] == '1')
+            valeur += pow(16,index);
+        else if(a[i] == '2')
+            valeur += 2*pow(16,index);
+        else if(a[i] == '3')
+            valeur += 3*pow(16,index);
+        else if(a[i] == '4')
+            valeur += 4*pow(16,index);
+        else if(a[i] == '5')
+            valeur += 5*pow(16,index);
+        else if(a[i] == '6')
+            valeur += 6*pow(16,index);
+        else if(a[i] == '7')
+            valeur += 7*pow(16,index);
+        else if(a[i] == '8')
+            valeur += 8*pow(16,index);
+        else if(a[i] == '9')
+            valeur += 9*pow(16,index);
+        else if(a[i] == 'a')
+            valeur += 10*pow(16,index);
+        else if(a[i] == 'b')
+            valeur += 11*pow(16,index);
+        else if(a[i] == 'c')
+            valeur += 12*pow(16,index);
+        else if(a[i] == 'd')
+            valeur += 13*pow(16,index);
+        else if(a[i] == 'e')
+            valeur += 14*pow(16,index);
+        else if(a[i] == 'f')
+            valeur += 15*pow(16,index);
+        index++;
+
+    }
+    int x=valeur,y=valeur;
+
+    string res,text;
+    do
+    {
+        y=x%8;
+        if(y==0)
+            text="0";
+        else if(y==1)
+            text="1";
+        else if(y==2)
+            text="2";
+        else if(y==3)
+            text="3";
+        else if(y==4)
+            text="4";
+        else if(y==5)
+            text="5";
+        else if(y==6)
+            text="6";
+        else if(y==7)
+            text="7";
+        res+=text;
+        x=x/8;
+    }while(x>=7);
+        if(x==0)
+            text="0";
+        else if(x==1)
+            text="1";
+        else if(x==2)
+            text="2";
+        else if(x==3)
+            text="3";
+        else if(x==4)
+            text="4";
+        else if(x==5)
+            text="5";
+        else if(x==6)
+            text="6";
+        else if(x==7)
+            text="7";
+        res+=text;
+    string res_reversed(res);
+    reverse(res_reversed.begin(),res_reversed.end());
+    cout<<a<<"(hex) = "<<res_reversed<<"(oct)"<<endl;
+}
 void menuchoixUn()
 {
     cout<<"1……………… D"<<char(130)<<"cimal en"<<endl;
@@ -434,13 +627,44 @@ int main()
                             }break;
                       }
                         }break;
-               }
+                       case 3:
+                        {
+                            cin>>choix3;
+                      switch (choix3)
+                      {
+                      case 1:
+                            {
+                                cout<<"Entrez l'hexadecimal que vous voulez mettre en binaire: ";
+                               cin>>valeurBinaire;
+                                hexabin(valeurBinaire);
+                            }break;
+                       case 2:
+                            {
+                                cout<<"Entrez l'hexadecimal que vous voulez mettre en octal: ";
+                               cin>>valeurBinaire;
+                               hexoct(valeurBinaire);
+                            }break;
+                       case 3:
+                            {
+                                cout<<"Entrez l'hexadecimal que vous voulez mettre en hexadecimal: ";
+                               cin>>valeurBinaire;
+                               cout<<valeurBinaire<<"(hex) = "<<valeurBinaire<<"(hex)"<<endl;
+                            }break;
+                       case 4:
+                            {
+                                cout<<"Entrez l'hexadecimal que vous voulez mettre en decimal: ";
+                               cin>>valeurBinaire;
+                               hexadec(valeurBinaire);
+                            }break;
+                      }
+               }break;
 
 
 
             }break;
         }
-    }while(choix1<=0 || choix1>=5);
+    }
+}while(choix1<=0 || choix1>=5);
     //system("cls");
     main();
 
