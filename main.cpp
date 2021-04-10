@@ -551,8 +551,6 @@ void retour (int a)
 {
    if(a==0)
         menuCentrale();
-   else if(a==2)
-        menuchoixUn();
 }
 //a ne pas oublier de gerer les erreurs de saisies+
 int main()
@@ -593,21 +591,39 @@ int main()
                             }break;
                        case 2:
                             {
+                               do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en octal: ";
                                cin>>valeurChoisi;
                                decoctal(valeurChoisi);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 3:
                             {
+                                do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en hexadecimal: ";
                                cin>>valeurChoisi;
                                dechexa(valeurChoisi);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 4:
                             {
+                                do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en decimal: ";
                                cin>>valeurChoisi;
                                decdec(valeurChoisi);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
 
                       }
@@ -619,27 +635,51 @@ int main()
                       {
                       case 1:
                             {
+                                do{
                                 cout<<"Entrez le binaire que vous voulez mettre en binaire: ";
                                cin>>valeurBinaire;
                                 cout<<valeurBinaire<<"(bin) = "<<valeurBinaire<<"(bin)"<<endl;
+                                cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 2:
                             {
+                                do{
                                 cout<<"Entrez le binaire que vous voulez mettre en octal: ";
                                cin>>valeurBinaire;
                                binoctal(valeurBinaire);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 3:
                             {
+                                do{
                                 cout<<"Entrez le binaire que vous voulez mettre en hexadecimal: ";
                                cin>>valeurBinaire;
                                binHex(valeurBinaire);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 4:
                             {
+                                do{
                                 cout<<"Entrez le binaire que vous voulez mettre en decimal: ";
                                cin>>valeurBinaire;
                                bindec(valeurBinaire);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                       }
                         }break;
@@ -650,27 +690,51 @@ int main()
                       {
                       case 1:
                             {
+                                do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en binaire: ";
                                cin>>valeurBinaire;
                                 hexabin(valeurBinaire);
+                                cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 2:
                             {
+                                do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en octal: ";
                                cin>>valeurBinaire;
                                hexoct(valeurBinaire);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 3:
                             {
+                                do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en hexadecimal: ";
                                cin>>valeurBinaire;
                                cout<<valeurBinaire<<"(hex) = "<<valeurBinaire<<"(hex)"<<endl;
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 4:
                             {
+                                do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en decimal: ";
                                cin>>valeurBinaire;
                                hexadec(valeurBinaire);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                       }
                }break;
