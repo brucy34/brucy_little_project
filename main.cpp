@@ -538,16 +538,26 @@ void hexoct(string a)
     reverse(res_reversed.begin(),res_reversed.end());
     cout<<a<<"(hex) = "<<res_reversed<<"(oct)"<<endl;
 }
+
 void menuchoixUn()
 {
     cout<<"1……………… D"<<char(130)<<"cimal en"<<endl;
 	cout<<"2……………. Binaire en"<<endl;
 	cout<<"3……………. Hexad"<<char(130)<<"cimal en"<<endl;
 }
+// fonction pour demander a l'utilisateur s'il veut continuer ou retourner
+
+void retour (int a)
+{
+   if(a==0)
+        menuCentrale();
+   else if(a==2)
+        menuchoixUn();
+}
 //a ne pas oublier de gerer les erreurs de saisies+
 int main()
 {
-    int choix1,choix2,choix3;
+    int choix1,choix2,choix3, choixDeRetour;
     int valeurChoisi;
     string valeurBinaire;
     do
@@ -571,9 +581,15 @@ int main()
                       {
                       case 1:
                             {
+                                do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en binaire: ";
                                cin>>valeurChoisi;
                                decbin(valeurChoisi);
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               retour(choixDeRetour);
+                               }while(choixDeRetour==1);
                             }break;
                        case 2:
                             {
