@@ -751,6 +751,25 @@ int main()
            {
                menuChoixDeux();
                cin>>choix1;
+               switch(choix1)
+               {
+               case 1:
+                {
+
+                }break;
+               case 2:
+                {
+
+                }break;
+               case 3:
+                {
+
+                }break;
+               case 4:
+                {
+
+                }break;
+               }
            }break;
     }
 }while(choix1<=0 || choix1>=5);
