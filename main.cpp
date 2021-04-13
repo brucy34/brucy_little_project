@@ -570,6 +570,7 @@ int main()
 
     menuCentrale();
         cin>>choix1;
+        system("cls");
         switch(choix1)
         {
         case 1:
@@ -577,6 +578,7 @@ int main()
                menuchoixUn();
                cin>>choix2;
                choice();
+
                switch (choix2)
                {
                case 1:
@@ -595,6 +597,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 2:
                             {
@@ -607,6 +611,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 3:
                             {
@@ -619,6 +625,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 4:
                             {
@@ -631,6 +639,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
 
                       }
@@ -651,6 +661,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 2:
                             {
@@ -663,6 +675,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 3:
                             {
@@ -675,6 +689,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 4:
                             {
@@ -687,6 +703,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                       }
                         }break;
@@ -706,6 +724,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 2:
                             {
@@ -718,6 +738,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 3:
                             {
@@ -730,6 +752,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                        case 4:
                             {
@@ -742,6 +766,8 @@ int main()
                                cin>>choixDeRetour;
                                retour(choixDeRetour);
                                }while(choixDeRetour==1);
+                               system("pause");
+                               system("cls");
                             }break;
                       }
                }break;
@@ -773,8 +799,8 @@ int main()
            }break;
     }
 }while(choix1<=0 || choix1>=5);
-    //system("cls");
-    main();
+
+    //main();
 
     return 0;
 }
