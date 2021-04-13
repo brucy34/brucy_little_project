@@ -562,7 +562,7 @@ void menuChoixDeux()
 //a ne pas oublier de gerer les erreurs de saisies+
 int main()
 {
-    int choix1,choix2,choix3, choixDeRetour;
+    int choix1,choix2,choix3, choixDeRetour, m_lignes,m_colonnes,m_lignes1,m_colonnes1;
     int valeurChoisi;
     string valeurBinaire;
     do
@@ -786,7 +786,48 @@ int main()
                 }break;
                case 2:
                 {
-
+                    do
+                    {
+                        cout<<"Entrer le nombre de lignes de votre matrice1"<<endl;
+                        cin>>m_lignes;
+                        cout<<"Entrer le nombre de colonnes de votre matrice1"<<endl;
+                        cin>>m_colonnes;
+                        cout<<"Entrer le nombre de lignes de votre matrice2"<<endl;
+                        cin>>m_lignes1;
+                        cout<<"Entrer le nombre de colonnes de votre matrice2"<<endl;
+                        cin>>m_colonnes1;
+                        while(m_colonnes!=m_lignes1)
+                        {
+                            cout<<"Erreur!!Le nombre de colonnes de matrice1 doit egales au nombre de lignes de matrice2.Veuillez reesayer"<<endl;
+                            cout<<"Entrer le nombre de lignes de votre matrice1"<<endl;//mettre pause peut etre
+                        cin>>m_lignes;
+                        cout<<"Entrer le nombre de colonnes de votre matrice1"<<endl;
+                        cin>>m_colonnes;
+                        cout<<"Entrer le nombre de lignes de votre matrice2"<<endl;
+                        cin>>m_lignes1;
+                        cout<<"Entrer le nombre de colonnes de votre matrice2"<<endl;
+                        cin>>m_colonnes1;
+                        }
+                        int a[m_lignes][m_colonnes];
+                        int b[m_lignes1][m_colonnes1];
+                        cout<<"Entrer les valeur de la premiere matrice"<<endl;
+                        for(int i=0;i<=m_lignes;i++)
+                        {
+                            for(int j=0;j<m_colonnes;j++)
+                            {
+                                cin>>a[i][j];
+                            }
+                        }
+                        cout<<"Entrer les valeur de la deuxieme matrice"<<endl;
+                        for(int i=0;i<=m_lignes1;i++)
+                        {
+                            for(int j=0;j<=m_colonnes1;j++)
+                            {
+                                cin>>b[i][j];
+                            }
+                        }
+                        cout<<"Le resultat est: ";
+                    }while(choixDeRetour==1);
                 }break;
                case 3:
                 {
