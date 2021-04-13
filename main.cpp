@@ -610,10 +610,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 3:
                             {
@@ -624,10 +624,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 4:
                             {
@@ -638,10 +638,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
 
                       }
@@ -660,10 +660,10 @@ int main()
                                 cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 2:
                             {
@@ -674,10 +674,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 3:
                             {
@@ -688,10 +688,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 4:
                             {
@@ -702,10 +702,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                       }
                         }break;
@@ -723,10 +723,10 @@ int main()
                                 cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 2:
                             {
@@ -737,10 +737,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 3:
                             {
@@ -751,10 +751,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                        case 4:
                             {
@@ -765,10 +765,10 @@ int main()
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
+                               system("cls");
                                //retour(choixDeRetour);
                                }while(choixDeRetour==1);
-                               system("pause");
-                               system("cls");
+                               main();
                             }break;
                       }
                }break;
