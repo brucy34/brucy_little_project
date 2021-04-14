@@ -851,7 +851,51 @@ int main()
                 }break;
                case 3:
                 {
-
+                    int a,b,z,a1,b1,z1,y,x,temp,temp1,temp2;
+                    cout<<"Entrer la valeur de z,a et b pour la premiere equation ax+by=z: "<<endl;
+                    cin>>z;
+                    cin>>a;
+                    cin>>b;
+                    cout<<"Entrer la valeur de z,a et b pour la deuxieme equation ax+by=z: "<<endl;
+                    cin>>z1;
+                    cin>>a1;
+                    cin>>b1;
+                    while((a || b || a1 || b1)==0)
+                    {
+                        cout<<"Les coefficient de x et y doivent etre different de 0. Reesayer"<<endl;
+                        cout<<"Entrer la valeur de z,a et b pour la premiere equation ax+by=z: "<<endl;
+                    cin>>z;
+                    cin>>a;
+                    cin>>b;
+                    cout<<"Entrer la valeur de z,a et b pour la deuxieme equation ax+by=z: "<<endl;
+                    cin>>z1;
+                    cin>>a1;
+                    cin>>b1;
+                    }
+                    if(a+a1 != 0)
+                    {
+                        temp=a;
+                        temp1=b;
+                        temp2=z;
+                       a=(-a1/a)*a;
+                       b=(-a1/a)*b;
+                       z=(-a1/a)*z;
+                       b1=b+b1;
+                       z1=z+z1;
+                       y=z1/b1;
+                       x=(temp2-(temp1*y))/temp;
+                       cout<<"Le resultat de x est: "<<x<<endl;
+                       cout<<"Le resultat de y est: "<<y<<endl;
+                    }
+                    else
+                    {
+                       b1=b+b1;
+                       z1=z+z1;
+                       y=z1/b1;
+                       x=(z-(b*y))/a;
+                       cout<<"Le resultat de x est: "<<x<<endl;
+                       cout<<"Le resultat de y est: "<<y<<endl;
+                    }
                 }break;
                case 4:
                 {
