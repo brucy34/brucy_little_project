@@ -550,7 +550,7 @@ void menuChoixDeux()
     cout<<"1......... Carr"<<char(130)<<" magique d'ordre pair"<<endl;
     cout<<"2......... Multiplication de deux matrices"<<endl;
     cout<<"3......... R"<<char(130)<<"solution d'un syst"<<char(138)<<"me d'"<<char(130)<<"quation "<<char(133)<<" deux inconnues."<<endl;
-    cout<<"4......... Le d"<<char(130)<<"terminant et le tranpos"<<char(130)<<"e d'une matrice quelconque."<<endl;
+    cout<<"4......... Le d"<<char(130)<<"terminant et la tranpos"<<char(130)<<"e d'une matrice quelconque."<<endl;
 }
 // fonction pour demander a l'utilisateur s'il veut continuer ou retourner
 
@@ -810,7 +810,7 @@ int main()
                         }
                         int a[m_lignes][m_colonnes];
                         int b[m_lignes1][m_colonnes1];
-                        cout<<"Entrer les valeur de la premiere matrice"<<endl;
+                        cout<<"Entrer les valeurs de la premiere matrice"<<endl;
                         for(int i=1;i<=m_lignes;i++)
                         {
                             for(int j=1;j<=m_colonnes;j++)
@@ -818,7 +818,7 @@ int main()
                                 cin>>a[i][j];
                             }
                         }
-                        cout<<"Entrer les valeur de la deuxieme matrice"<<endl;
+                        cout<<"Entrer les valeurs de la deuxieme matrice"<<endl;
                         for(int i=1;i<=m_lignes1;i++)
                         {
                             for(int j=1;j<=m_colonnes1;j++)
@@ -832,17 +832,22 @@ int main()
                         {
                             for(int j=1;j<=m_colonnes1;j++)
                             {
-                                r[i][j]=(a[i][j]*b[i][j])+(a[i][j+1]*b[i+1][j]);
+                                r[i][j]=(a[i][j]*b[i][j])+(a[i][j+1]*b[i+1][j]);//must to be debugging
                             }
                         }
                         for(int i=1;i<=m_lignes;i++)
                         {
                             for(int j=1;j<=m_colonnes1;j++)
                             {
-                                cout<<r[i][j];
+                                cout<<r[i][j]<<endl;
                             }
                         }
+                        cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               system("cls");
                     }while(choixDeRetour==1);
+                    main();
                 }break;
                case 3:
                 {
