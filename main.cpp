@@ -827,6 +827,21 @@ int main()
                             }
                         }
                         cout<<"Le resultat est: ";
+                        int r[m_lignes][m_colonnes1];
+                        for(int i=0;i<=m_lignes;i++)
+                        {
+                            for(int j=0;j=m_colonnes1;j++)
+                            {
+                                r[i][j]=(a[i][j]*b[i][j])+(a[i][j+1]*b[i+1][j]);
+                            }
+                        }
+                        for(int i=0;i<=m_lignes;i++)
+                        {
+                            for(int j=0;j=m_colonnes1;j++)
+                            {
+                                cout<<r[i][j];
+                            }
+                        }
                     }while(choixDeRetour==1);
                 }break;
                case 3:
