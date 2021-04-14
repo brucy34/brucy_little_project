@@ -811,33 +811,33 @@ int main()
                         int a[m_lignes][m_colonnes];
                         int b[m_lignes1][m_colonnes1];
                         cout<<"Entrer les valeur de la premiere matrice"<<endl;
-                        for(int i=0;i<=m_lignes;i++)
+                        for(int i=1;i<=m_lignes;i++)
                         {
-                            for(int j=0;j<m_colonnes;j++)
+                            for(int j=1;j<=m_colonnes;j++)
                             {
                                 cin>>a[i][j];
                             }
                         }
                         cout<<"Entrer les valeur de la deuxieme matrice"<<endl;
-                        for(int i=0;i<=m_lignes1;i++)
+                        for(int i=1;i<=m_lignes1;i++)
                         {
-                            for(int j=0;j<=m_colonnes1;j++)
+                            for(int j=1;j<=m_colonnes1;j++)
                             {
                                 cin>>b[i][j];
                             }
                         }
-                        cout<<"Le resultat est: ";
+                        cout<<"Le resultat est: "<<endl;
                         int r[m_lignes][m_colonnes1];
-                        for(int i=0;i<=m_lignes;i++)
+                        for(int i=1;i<=m_lignes;i++)
                         {
-                            for(int j=0;j=m_colonnes1;j++)
+                            for(int j=1;j<=m_colonnes1;j++)
                             {
                                 r[i][j]=(a[i][j]*b[i][j])+(a[i][j+1]*b[i+1][j]);
                             }
                         }
-                        for(int i=0;i<=m_lignes;i++)
+                        for(int i=1;i<=m_lignes;i++)
                         {
-                            for(int j=0;j=m_colonnes1;j++)
+                            for(int j=1;j<=m_colonnes1;j++)
                             {
                                 cout<<r[i][j];
                             }
