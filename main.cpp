@@ -851,7 +851,7 @@ int main()
                 }break;
                case 3:
                 {
-                    int a,b,z,a1,b1,z1,y,x,temp,temp1,temp2;
+                    float a,b,z,a1,b1,z1,y,x,temp,temp1,temp2;
                     cout<<"Entrer la valeur de z,a et b pour la premiere equation ax+by=z: "<<endl;
                     cin>>z;
                     cin>>a;
@@ -877,11 +877,11 @@ int main()
                         temp=a;
                         temp1=b;
                         temp2=z;
-                       a=(-a1/a)*a;
+                       //a=(-a1/a)*a;
                        b=(-a1/a)*b;
                        z=(-a1/a)*z;
-                       b1=b+b1;
-                       z1=z+z1;
+                       b1+=b;
+                       z1+=z;
                        y=z1/b1;
                        x=(temp2-(temp1*y))/temp;
                        cout<<"Le resultat de x est: "<<x<<endl;
