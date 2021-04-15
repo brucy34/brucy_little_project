@@ -896,6 +896,7 @@ int main()
                case 3:
                 {
                     float a,b,z,a1,b1,z1,y,x,temp,temp1,temp2;
+                    do{
                     cout<<"Entrer la valeur de z,a et b pour la premiere equation ax+by=z: "<<endl;
                     cin>>z;
                     cin>>a;
@@ -940,6 +941,13 @@ int main()
                        cout<<"Le resultat de x est: "<<x<<endl;
                        cout<<"Le resultat de y est: "<<y<<endl;
                     }
+                    cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               system("cls");
+                               //retour(choixDeRetour);
+                               }while(choixDeRetour==1);
+                               main();
                 }break;
                case 4:
                 {
@@ -950,8 +958,6 @@ int main()
            }break;
     }
 }while(choix1<=0 || choix1>=5);
-
-    //main();
 
     return 0;
 }
