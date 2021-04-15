@@ -840,12 +840,16 @@ int main()
                         {
                             for(int j=1;j<=m_colonnes1;j++)
                             {
-                                //r[i][j]=0;
-                                for(int k=1;k<=m_colonnes1;k++)
+                                r[i][j]=0;
+                                for(int k=1;k<=m_lignes1;k++)
                                 {
-                                    r[i][j]=a[i][k]*b[k][j];
+                                    for(int l=1;l<=m_colonnes1;l++)
+                                    {
+                                       r[i][j]=a[i][k]*b[k][j]+a[i][k+1]*b[k+1][j];
+                                    }
+
                                 }
-                                cout<<r[i][j];
+                                cout<<r[i][j]<<endl;
                             }
                         }
                                    /* for(int l=1;l<=m_colonnes;l++)
