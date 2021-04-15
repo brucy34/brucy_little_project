@@ -840,9 +840,15 @@ int main()
                         {
                             for(int j=1;j<=m_colonnes1;j++)
                             {
-                                for(int k=1;k<=m_lignes;k++)
+                                //r[i][j]=0;
+                                for(int k=1;k<=m_colonnes1;k++)
                                 {
-                                    for(int l=1;l<=m_colonnes;l++)
+                                    r[i][j]=a[i][k]*b[k][j];
+                                }
+                                cout<<r[i][j];
+                            }
+                        }
+                                   /* for(int l=1;l<=m_colonnes;l++)
                                     {
                                         for(int m=1;m<=m_lignes1;m++)
                                         {
@@ -857,13 +863,13 @@ int main()
                                 }
                                cout<<r[i][j]<<endl; //must to be debugging
                             }
-                        }
+                        }*/
 
                         /*for(int i=1;i<=m_lignes;i++)
                         {
                             for(int j=1;j<=m_colonnes1;j++)
                             {
-
+                                cout<<r[i][j]<<endl;
                             }
                         }*/
                         cout<<"Si vous voulez continuer pressez 1"<<endl;
