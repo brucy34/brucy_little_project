@@ -552,6 +552,23 @@ void menuChoixDeux()
     cout<<"3......... R"<<char(130)<<"solution d'un syst"<<char(138)<<"me d'"<<char(130)<<"quation "<<char(133)<<" deux inconnues."<<endl;
     cout<<"4......... Le d"<<char(130)<<"terminant et la tranpos"<<char(130)<<"e d'une matrice quelconque."<<endl;
 }
+void carre_double_pair()
+{
+    int N=0,i;
+    cout<<"Veuillez entrer la valeur du carre doublement pair: "<<endl;
+    cin>>N;
+    int tab[N][N];
+    for(i=0;i<N;N++)
+    {
+        for(int j=0;j<N;j++)
+        {
+            //bool r1=(i-1%4==0 && i%4!==0) || (i-1%4!=0 && i%4==0);
+            //bool r2=(j-1%4==0 && j%4!==0) || (j-1%4!=0 && j%4==0);
+
+            //if((r1==!r2) && ())
+        }
+    }
+}
 void detMatrix()
 {
     int val_ligne,val_colonne;
@@ -846,18 +863,14 @@ int main()
                         }*/
                         cout<<"Le resultat est: "<<endl;
                         int r[m_lignes][m_colonnes1];
-                        for(int i=1;i<=m_lignes;i++)
+                        for(int i=0;i<m_lignes;i++)
                         {
-                            for(int j=1;j<=m_colonnes1;j++)
+                            for(int j=0;j<m_colonnes1;j++)
                             {
                                 r[i][j]=0;
-                                for(int k=1;k<=m_lignes1;k++)
+                                for(int k=0;k<m_lignes1;k++)
                                 {
-                                    for(int l=1;l<=m_colonnes1;l++)
-                                    {
-                                       r[i][j]=a[i][k]*b[k][j]+a[i][k+1]*b[k+1][j];
-                                    }
-
+                                    r[i][j]+=a[i][k]*b[k][j];
                                 }
                                 cout<<r[i][j]<<endl;
                             }
