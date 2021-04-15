@@ -552,13 +552,23 @@ void menuChoixDeux()
     cout<<"3......... R"<<char(130)<<"solution d'un syst"<<char(138)<<"me d'"<<char(130)<<"quation "<<char(133)<<" deux inconnues."<<endl;
     cout<<"4......... Le d"<<char(130)<<"terminant et la tranpos"<<char(130)<<"e d'une matrice quelconque."<<endl;
 }
-// fonction pour demander a l'utilisateur s'il veut continuer ou retourner
-
-/*void retour (int a)
+void detMatrix()
 {
-   if(a==0)
-        menuCentrale();
-}*/
+    int val_ligne,val_colonne;
+    cout<<"Veuillez entrez le nombre de ligne de votre matrice: "<<endl;
+    cin>>val_ligne;
+    cout<<"Veuillez entrez le nombre de colonne de votre matrice: "<<endl;
+    cin>>val_colonne;
+    int mat[val_ligne][val_colonne];
+    cout<<"Veuillez entrer les valeurs de votre matrice: "<<endl;
+    for(int a=0;a<val_ligne;a++)
+    {
+        for(int b=0;b<val_colonne;b++)
+        {
+            cin>>mat[a][b];
+        }
+    }
+}
 //a ne pas oublier de gerer les erreurs de saisies+
 int main()
 {
@@ -933,6 +943,7 @@ int main()
                 }break;
                case 4:
                 {
+                    detMatrix();
 
                 }break;
                }
