@@ -587,6 +587,55 @@ void detMatrix()
     }
 }
 //a ne pas oublier de gerer les erreurs de saisies+
+
+char square[3][3];
+
+
+int winBoard()
+{
+    if(square[1][1]==square[1][2] && square[1][2]==square[1][3])
+        return 1;
+    else if(square[2][1]==square[2][2] && square[2][2]==square[2][3])
+        return 2;
+    else if(square[3][1]==square[3][2] && square[3][2]==square[3][3])
+        return 3;
+    else if(square[1][1]==square[2][2] && square[2][2]==square[3][3])
+        return 4;
+    else if(square[1][3]==square[2][2] && square[2][2]==square[3][1])
+        return 5;
+    else if(square[1][1]==square[2][1] && square[2][1]==square[3][1])
+        return 6;
+    else if(square[1][2]==square[2][2] && square[2][2]==square[3][2])
+        return 7;
+    else if(square[1][3]==square[2][3] && square[2][3]==square[3][3])
+        return 8;
+    else if(square[1][1]!='1' && square[1][2]!='2' && square[1][3]!='3' &&
+            square[2][1]!='4' && square[2][2]!='5' && square[2][3]!='6' &&
+            square[3][1]!='7' && square[3][2]!='8' && square[3][3]!='9')
+        return 0;
+    else
+    return -1;
+}
+void board()
+{
+    system("cls");
+
+    cout<<"\aCurrent board"<<endl<<endl;
+
+    for(int r=1;r<=3;r++)
+    {
+
+        for(int c=1;c<=3;c++)
+        {
+            cout<<square[r][c];
+            cout<<" | ";
+        }
+        cout<<endl;
+        cout<<" -----+---- ";
+        cout<<endl;
+    }
+}
+
 int main()
 {
     int choix1,choix2,choix3, choixDeRetour, m_lignes,m_colonnes,m_lignes1,m_colonnes1;
@@ -892,7 +941,7 @@ int main()
                                             }
                                         }
                                     }
-                               cout<<r[i][j]<<endl; //must to be debugging
+                                    cout<<r[i][j]<<endl; //must to be debugging
                                 }
                             }
 
@@ -973,6 +1022,96 @@ int main()
                 }break;
                }
            }break;
+               case 3:
+                {
+
+                }break;
+               case 4:
+                {
+                     const char PLAYER_X='X',PLAYER_O='O';
+
+    char lastPlayer=PLAYER_O;
+    char currentPlayer=PLAYER_X;
+
+    char c='1';
+    for(int i=1;i<=3;i++)
+    {
+        for(int j=1;j<=3;j++)
+        {
+            square[i][j]=c;
+            c++;
+        }
+    }
+
+    char bridge='p';
+    int choice;
+    int guard=1;
+    for(int i=-1;i==-1 && guard<=9;i=winBoard())
+    {
+        board();
+        cout<<"Turn of player_"<<currentPlayer<<endl;
+        cout<<"Choose the number of the case: ";
+        cin>>choice;
+
+
+        if(choice==1 && square[1][1]=='1')
+            square[1][1]=currentPlayer;
+        else if(choice==2 && square[1][2]=='2')
+            square[1][2]=currentPlayer;
+        else if(choice==3 && square[1][3]=='3')
+            square[1][3]=currentPlayer;
+        else if(choice==4 && square[2][1]=='4')
+            square[2][1]=currentPlayer;
+        else if(choice==5 && square[2][2]=='5')
+            square[2][2]=currentPlayer;
+        else if(choice==6 && square[2][3]=='6')
+            square[2][3]=currentPlayer;
+        else if(choice==7 && square[3][1]=='7')
+            square[3][1]=currentPlayer;
+        else if(choice==8 && square[3][2]=='8')
+            square[3][2]=currentPlayer;
+        else if(choice==9 && square[3][3]=='9')
+            square[3][3]=currentPlayer;
+        else
+        {
+
+            for(int f=0;f<=100000000;f++){
+                    if(f==50){
+                        cout<<"Invalid choice"<<endl;
+                    }
+                }
+                continue;
+        }
+        board();
+        guard++;
+        bridge=currentPlayer;
+        currentPlayer=lastPlayer;
+        lastPlayer=bridge;
+
+    }
+
+
+    if (winBoard()==1)
+        cout<<"Player_"<<lastPlayer<<" wins on the top row"<<endl;
+    else if(winBoard()==2)
+        cout<<"Player_"<<lastPlayer<<" wins on the middle row"<<endl;
+    else if(winBoard()==3)
+        cout<<"Player_"<<lastPlayer<<" wins on the bottom row"<<endl;
+    else if(winBoard()==4)
+        cout<<"Player_"<<lastPlayer<<" wins on the left diagonal"<<endl;
+    else if(winBoard()==5)
+        cout<<"Player_"<<lastPlayer<<" wins on the right diagonal"<<endl;
+    else if(winBoard()==6)
+        cout<<"Player_"<<lastPlayer<<" wins on the left column"<<endl;
+    else if(winBoard()==7)
+        cout<<"Player_"<<lastPlayer<<" wins on the middle column"<<endl;
+    else if(winBoard()==8)
+        cout<<"Player_"<<lastPlayer<<" wins on the right column"<<endl;
+    else
+        cout<<"Draw.Nobody wins"<<endl;
+
+
+                }break;
     }
 }while(choix1<=0 || choix1>=5);
 
