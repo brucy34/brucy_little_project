@@ -863,7 +863,7 @@ int main()
                         }*/
                         cout<<"Le resultat est: "<<endl;
                         int r[m_lignes][m_colonnes1];
-                        for(int i=0;i<m_lignes;i++)
+                        /*for(int i=0;i<m_lignes;i++)
                         {
                             for(int j=0;j<m_colonnes1;j++)
                             {
@@ -874,23 +874,27 @@ int main()
                                 }
                                 cout<<r[i][j]<<endl;
                             }
-                        }
-                                   /* for(int l=1;l<=m_colonnes;l++)
+                        }*/
+                            for(int i=0;i<m_lignes;i++)
+                            {
+                                for(int j=0;j<m_colonnes1;j++)
+                                {
+                                    for(int k=0;k<m_lignes;k++)
                                     {
-                                        for(int m=1;m<=m_lignes1;m++)
+                                        for(int l=0;l<m_colonnes;l++)
                                         {
-                                            for(int n=1;n<=m_colonnes1;n++)
+                                            for(int m=0;m<m_lignes1;m++)
                                             {
-                                                r[i][j]=(a[m][n]*b[k][l])+(a[m][n+1]*b[k+1][l]);
-
+                                                for(int n=0;n<m_colonnes1;n++)
+                                                {
+                                                    r[i][j]=(a[k][l]*b[m][n])+(a[k][l+1]*b[m+1][n]);
+                                                }
                                             }
                                         }
                                     }
-
-                                }
                                cout<<r[i][j]<<endl; //must to be debugging
+                                }
                             }
-                        }*/
 
                         /*for(int i=1;i<=m_lignes;i++)
                         {
