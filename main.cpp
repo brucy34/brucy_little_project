@@ -554,19 +554,36 @@ void menuChoixDeux()
 }
 void carre_double_pair()
 {
-    int N=0,i;
+    int N,k,i,j;
     cout<<"Veuillez entrer la valeur du carre doublement pair: "<<endl;
     cin>>N;
     int tab[N][N];
-    for(i=0;i<N;N++)
+    k=1;
+    for(i=0;i<N;i++)
     {
-        for(int j=0;j<N;j++)
+        for(j=0;j<N;j++)
         {
-            //bool r1=(i-1%4==0 && i%4!==0) || (i-1%4!=0 && i%4==0);
-            //bool r2=(j-1%4==0 && j%4!==0) || (j-1%4!=0 && j%4==0);
-
-            //if((r1==!r2) && ())
+            tab[i][j]=k;
+            k++;
+            cout<<"["<<tab[i][j]<<"]";
         }
+        cout<<endl;
+    }
+    cout<<"Le carre magique correspondant est: "<<endl;
+    for(i=0;i<N;i++)
+    {
+        for(j=0;j<N;j++)
+        {
+            bool r1=(i-1)%4==0 || i%4==0;
+            bool r2=(j-1)%4==0 || j%4==0;
+
+            if((r1 && !r2) || (!r1 && r2))
+            {
+                tab[i][j]=(N*N)-tab[i][j];
+            }
+            cout<<"["<<tab[i][j]<<"]";
+        }
+        cout<<endl;
     }
 }
 void detMatrix()
@@ -864,7 +881,19 @@ int main()
                {
                case 1:
                 {
-
+                    do
+                    {
+                        cout<<"Pressez 1 pour un carre magique d ordre doublement pair"<<endl;
+                        cout<<"Pressez 2 pour un carre magique d ordre simplement pair"<<endl;
+                        cin>>choix1;
+                        if(choix1==1)
+                            carre_double_pair();
+                    cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               system("cls");
+                    }while(choixDeRetour==1);
+                    main();
                 }break;
                case 2:
                 {
