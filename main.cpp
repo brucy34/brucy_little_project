@@ -586,6 +586,12 @@ void detMatrix()
         }
     }
 }
+void menuEtudiant()
+{
+    cout<<"1............ Entrez des informations sur un etudiant dans un fichier Notepad"<<endl;
+    cout<<"2............ Afficher les informations du fichier avec la possibilite de les imprimer"<<endl;
+    cout<<"3............ Afficher les informations des etudiants par ordre alphabetique des noms"<<endl;
+}
 //a ne pas oublier de gerer les erreurs de saisies+
 
 char square[3][3];
@@ -1024,12 +1030,37 @@ int main()
            }break;
                case 3:
                 {
+                    menuEtudiant();
+                    cin>>choix1;
+                    switch(choix1)
+                    {
+                    case 1:
+                        {
+                            string nom,prenom,code,adresse;
+                         cout<<"Veuillez saisir les informations suivantes sur un etudiant: "<<endl;
+                        cout<<"Nom: ";
+                        cin>>nom;
+                        cout<<"Prenom: ";
+                        cin>>prenom;
+                        cout<<"Code: ";
+                        cin>>code;
+                        cout<<"Adresse: ";
+                        cin>>adresse;
+                        }break;
+                    case 2:
+                        {
 
+                        }break;
+                    case 3:
+                        {
+
+                        }break;
+                    }
                 }break;
                case 4:
                 {
-                     const char PLAYER_X='X',PLAYER_O='O';
-
+    do{
+    const char PLAYER_X='X',PLAYER_O='O';
     char lastPlayer=PLAYER_O;
     char currentPlayer=PLAYER_X;
 
@@ -1110,7 +1141,13 @@ int main()
     else
         cout<<"Draw.Nobody wins"<<endl;
 
-
+cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               system("cls");
+                               //retour(choixDeRetour);
+    }while(choixDeRetour==1);
+    main();
                 }break;
     }
 }while(choix1<=0 || choix1>=5);
