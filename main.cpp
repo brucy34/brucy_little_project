@@ -1174,7 +1174,6 @@ cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
                                system("cls");
-                               //retour(choixDeRetour);
     }while(choixDeRetour==1);
     main();
                 }break;
