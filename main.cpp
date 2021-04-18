@@ -959,24 +959,25 @@ int main()
                                 cout<<r[i][j]<<endl;
                             }
                         }*/
-                            for(int i=0;i<m_lignes;i++)
+                            for(int m=0;m<m_lignes1;m++)
                             {
-                                for(int j=0;j<m_colonnes1;j++)
+                                for(int n=0;n=0;n++)
                                 {
-                                    for(int k=0;k<m_lignes;k++)
+                                    for(int k=0;k=0;k++)
                                     {
                                         for(int l=0;l<m_colonnes;l++)
                                         {
-                                            for(int m=0;m<m_lignes1;m++)
+                                            for(int i=0;i<m_lignes;i++)
                                             {
-                                                for(int n=0;n<m_colonnes1;n++)
+                                                for(int j=0;j<m_colonnes1;j++)
                                                 {
                                                     r[i][j]=(a[k][l]*b[m][n])+(a[k][l+1]*b[m+1][n]);
+                                                    cout<<r[i][j]<<endl;
                                                 }
                                             }
                                         }
                                     }
-                                    cout<<r[i][j]<<endl; //must to be debugging
+                                    // must to be debugging
                                 }
                             }
 
