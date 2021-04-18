@@ -946,7 +946,7 @@ int main()
                             }
                         }*/
                         cout<<"Le resultat est: "<<endl;
-                        int r[m_lignes][m_colonnes1];
+                        int r[1000];
                         /*for(int i=0;i<m_lignes;i++)
                         {
                             for(int j=0;j<m_colonnes1;j++)
@@ -967,17 +967,10 @@ int main()
                                     {
                                         for(int l=0;l<m_colonnes;l++)
                                         {
-                                            for(int i=0;i<m_lignes;i++)
-                                            {
-                                                for(int j=0;j<m_colonnes1;j++)
-                                                {
-                                                    r[i][j]=(a[k][l]*b[m][n])+(a[k][l+1]*b[m+1][n]);
-                                                    cout<<r[i][j]<<endl;
-                                                }
-                                            }
+                                          r[m]=(a[k][l]*b[m][n])+(a[k][l+1]*b[m+1][n]);
                                         }
                                     }
-                                    // must to be debugging
+                                    cout<<r<<endl; //must to be debugging
                                 }
                             }
 
