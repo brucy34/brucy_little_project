@@ -610,6 +610,7 @@ void detMatrix()
         }
     }
 }
+
 void menuEtudiant()
 {
     cout<<"1............ Entrez des informations sur un etudiant dans un fichier Notepad"<<endl;
@@ -1053,7 +1054,28 @@ int main()
                 }break;
                case 4:
                 {
-                    detMatrix();
+                    int m_lignes,m_colonnes,i,j;
+                    //detMatrix();
+                    cout<<"Entrez le nombre de lignes de votre matrice: "<<endl;
+                    cin>>m_lignes;
+                    cout<<"Entrez le nombre de colonnes de votre matrice: "<<endl;
+                    cin>>m_colonnes;
+                    int tab[m_lignes][m_colonnes];
+                    cout<<"Entrez les valeurs de la matrice: "<<endl;
+                    for(i=0;i<m_lignes;i++)
+                    {
+                        for(j=0;j<m_colonnes;j++)
+                        {
+                            cin>>tab[i][j];
+                        }
+                    }
+                    cout<<"La transposée de votre matrice est: "<<endl;
+                    for(j=0;j<m_colonnes;j++)
+                    {
+                        for(i=0;i<m_lignes;i++)
+                            cout<<tab[i][j];
+                        cout<<endl;
+                    }
 
                 }break;
                }
