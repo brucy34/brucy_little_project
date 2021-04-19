@@ -586,6 +586,13 @@ void carre_double_pair()
         cout<<endl;
     }
 }
+void carre_simple_pair()
+{
+  int N,k,i,j,L,U,X;
+  cout<<"Entrez la dimension du carre simplement pair: "<<endl;
+  cin>>N;
+
+}
 void detMatrix()
 {
     int val_ligne,val_colonne;
