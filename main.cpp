@@ -593,23 +593,6 @@ void carre_simple_pair()
   cin>>N;
 
 }
-void detMatrix()
-{
-    int val_ligne,val_colonne;
-    cout<<"Veuillez entrez le nombre de ligne de votre matrice: "<<endl;
-    cin>>val_ligne;
-    cout<<"Veuillez entrez le nombre de colonne de votre matrice: "<<endl;
-    cin>>val_colonne;
-    int mat[val_ligne][val_colonne];
-    cout<<"Veuillez entrer les valeurs de votre matrice: "<<endl;
-    for(int a=0;a<val_ligne;a++)
-    {
-        for(int b=0;b<val_colonne;b++)
-        {
-            cin>>mat[a][b];
-        }
-    }
-}
 
 void menuEtudiant()
 {
@@ -955,29 +938,14 @@ int main()
                         }*/
                         cout<<"Le resultat est: "<<endl;
                         int r[m_lignes][m_colonnes1];
-                        /*for(int i=0;i<m_lignes;i++)
-                        {
-                            for(int j=0;j<m_colonnes1;j++)
-                            {
-                                r[i][j]=0;
-                                for(int k=0;k<m_lignes1;k++)
-                                {
-                                    r[i][j]+=a[i][k]*b[k][j];
-                                }
-                                cout<<r[i][j]<<endl;
-                            }
-                        }*/
                            for(int k=0;k<m_lignes;k++)
                                     {
-{
-}                                        for(int m=0; m<m_colonnes1;m++)
+                                       for(int m=0; m<m_colonnes1;m++)
                                         {
 
                                            for(int l=0;l<m_lignes1;l++)
                                             {
-                                                    //h= p;
                                                 p= a[k][l]*b[l][m]+p;
-
                                             }
                                             r[k][m]=p;
                                             p=0;
@@ -991,14 +959,6 @@ int main()
                                   cout<<r[k][l]<<endl;
                               }
                           }
-
-                        /*for(int i=0;i<m_lignes;i++)
-                        {
-                            for(int j=0;j<m_colonnes1;j++)
-                            {
-                                cout<<r[i][j]<<endl;
-                            }
-                        }*/
                         cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
@@ -1086,6 +1046,9 @@ int main()
                             cout<<"["<<tab[i][j]<<"]";
                         cout<<endl;
                     }
+
+                    float det=1;
+                    for(j=0;j)
 
                 }break;
                }
