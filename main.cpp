@@ -929,19 +929,19 @@ int main()
                         }
                         int a[m_lignes][m_colonnes];
                         int b[m_lignes1][m_colonnes1];
-                        int p;
+                        int p=0;
                         cout<<"Entrer les valeurs de la premiere matrice"<<endl;
-                        for(int k=1;k<=m_lignes;k++)
+                        for(int k=0;k<m_lignes;k++)
                         {
-                            for(int l=1;l<=m_colonnes;l++)
+                            for(int l=0;l<m_colonnes;l++)
                             {
                                 cin>>a[k][l];
                             }
                         }
                         cout<<"Entrer les valeurs de la deuxieme matrice"<<endl;
-                        for(int m=1;m<=m_lignes1;m++)
+                        for(int m=0;m<m_lignes1;m++)
                         {
-                            for(int n=1;n<=m_colonnes1;n++)
+                            for(int n=0;n<m_colonnes1;n++)
                             {
                                 cin>>b[m][n];
                             }
@@ -954,7 +954,7 @@ int main()
                             }
                         }*/
                         cout<<"Le resultat est: "<<endl;
-                        int r[1000];
+                        int r[m_lignes][m_colonnes1];
                         /*for(int i=0;i<m_lignes;i++)
                         {
                             for(int j=0;j<m_colonnes1;j++)
@@ -967,24 +967,34 @@ int main()
                                 cout<<r[i][j]<<endl;
                             }
                         }*/
-                            for(int m=0;m<m_lignes1;m++)
-                            {
-                                for(int n=0;n=0;n++)
-                                {
-                                    for(int k=0;k=0;k++)
+                           for(int k=0;k<m_lignes;k++)
                                     {
-                                        for(int l=0;l<m_colonnes;l++)
+{
+}                                        for(int m=0; m<m_colonnes1;m++)
                                         {
-                                          r[m]=(a[k][l]*b[m][n])+(a[k][l+1]*b[m+1][n]);
-                                        }
-                                    }
-                                    cout<<r<<endl; //must to be debugging
-                                }
-                            }
 
-                        /*for(int i=1;i<=m_lignes;i++)
+                                           for(int l=0;l<m_lignes1;l++)
+                                            {
+                                                    //h= p;
+                                                p= a[k][l]*b[l][m]+p;
+
+                                            }
+                                            r[k][m]=p;
+                                            p=0;
+                                          }
+                                    }
+
+                          for(int k=0;k<m_lignes;k++)
+                          {
+                              for(int l=0;l<m_colonnes1;l++)
+                              {
+                                  cout<<r[k][l]<<endl;
+                              }
+                          }
+
+                        /*for(int i=0;i<m_lignes;i++)
                         {
-                            for(int j=1;j<=m_colonnes1;j++)
+                            for(int j=0;j<m_colonnes1;j++)
                             {
                                 cout<<r[i][j]<<endl;
                             }
@@ -1073,7 +1083,7 @@ int main()
                     for(j=0;j<m_colonnes;j++)
                     {
                         for(i=0;i<m_lignes;i++)
-                            cout<<tab[i][j];
+                            cout<<"["<<tab[i][j]<<"]";
                         cout<<endl;
                     }
 
