@@ -65,7 +65,7 @@ string temp;
         if (stream.fail() || !stream.eof())
             cerr<<"Erreur saisie incorrect"<<endl;
         else
-        continue;
+        break;
     }
 }
 void decbin (int a)
