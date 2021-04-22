@@ -593,6 +593,47 @@ void carre_simple_pair()
   cin>>N;
 
 }
+const int n=50,p=50;
+void p_gauss(float a[n][p])
+{
+    float p,s,pivot,aide;
+    int i,j,k,ligne;
+    for(k=0;k<n-1;k++)
+    {
+       pivot=0;
+       for(i=k;i<n;i++)
+       {
+           if(abs(a[i][k])>pivot)
+           {
+               pivot=abs(a[i][k]);
+               ligne=i;
+           }
+       }
+       for(j=k;j<n;j++)
+       {
+           aide=a[k][j];
+           a[k][j]=a[ligne][j];
+           a[ligne][j]=aide;
+           if(a[k][k]==0)
+            cout<<"Matrice singuliere"<<endl;
+       }
+       for(i=k+1;i<n;i++)
+       {
+           p=a[i][k]/a[k][k];
+           for(j=k;j<n;j++)
+            a[i][j]=a[i][j]-p*a[k][j];
+       }
+    }
+    for(i=n-1;i>=0;i--)
+    {
+        s=0;
+        for(j=i+1;j<n;j++)
+            s=s+a[i][j];
+    }
+
+
+
+}
 
 void menuEtudiant()
 {
@@ -1048,7 +1089,6 @@ int main()
                     }
 
                     float det=1;
-                    for(j=0;j)
 
                 }break;
                }
