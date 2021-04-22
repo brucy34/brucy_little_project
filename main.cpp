@@ -1,4 +1,7 @@
 #include <iostream>
+#include <math.h>
+#include <sstream>
+#include <stdlib.h>
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -18,7 +21,53 @@ void choice()//En definir un pour chaque choix et non un seul
 	cout<<"3……………..  Hexad"<<char(130)<<"cimal"<<endl;
 	cout<<"4……………..  D"<<char(130)<<"cimal"<<endl;
 }
+void vider_buffer()
+{
+    cin.clear();
+    cin.seekg(0,ios::end);
 
+    if(!cin.fail())
+        cin.ignore(numeric_limits<streamsize>::max());
+    else
+        cin.clear();
+}
+void saisie_securise(int a)
+{
+string temp;
+
+    while(true)
+    {
+        getline(cin,temp);
+
+
+        if (cin.eof() || cin.bad())
+        {
+            cerr<<"Une erreur interne est survenue"<<endl;
+
+        if (cin.eof())
+        {
+            break;
+        }
+
+        vider_buffer();
+        continue;
+        }
+        else if(cin.fail() || temp.find_first_not_of("0123456789")!= string::npos)
+        {
+            cerr<<"Erreur saisie incorrect"<<endl;
+            vider_buffer();
+            continue;
+        }
+
+        istringstream stream(temp);
+        stream >> a;
+
+        if (stream.fail() || !stream.eof())
+            cerr<<"Erreur saisie incorrect"<<endl;
+        else
+        break;
+    }
+}
 void decbin (int a)
 {
     int x=a,y=a;
@@ -700,7 +749,7 @@ int main()
     {
 
     menuCentrale();
-        cin>>choix1;
+        saisie_securise(choix1);
         system("cls");
         switch(choix1)
         {
