@@ -65,7 +65,7 @@ string temp;
         if (stream.fail() || !stream.eof())
             cerr<<"Erreur saisie incorrect"<<endl;
         else
-        break;
+        continue;
     }
 }
 void decbin (int a)
@@ -1264,6 +1264,7 @@ cout<<"Si vous voulez continuer pressez 1"<<endl;
                 }break;
     }
 }while(choix1<=0 || choix1>=5);
+
 
     return 0;
 }

@@ -1,5 +1,8 @@
 # depslib dependency file v1.0
-1618843591 source:c:\users\saintilma\desktop\conversion\main.cpp
+1619061797 source:c:\users\saintilma\desktop\conversion\main.cpp
 	<iostream>
+	<math.h>
+	<sstream>
+	<stdlib.h>
 	<bits/stdc++.h>
 
