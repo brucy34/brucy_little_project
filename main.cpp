@@ -1272,13 +1272,14 @@ int main()
                     case 2:
                         {
                             display_data();
-                            menuEtudiant();
+                            cout<<"Pour retourner au menu principal presser 0 ou 1 pour aller au menu etudiant"<<endl;
+                            cin>>choixDeRetour;
+                            if(choixDeRetour==1)
+                            {
+                                menuEtudiant();
                                 cin>>choix1;
-                                break;
-                               cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
-                               system("cls");
-                               if(choixDeRetour==0)
+                            }
+                            if(choixDeRetour==0)
                                 main();
                         }break;
                     case 3:
