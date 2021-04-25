@@ -3,9 +3,12 @@
 #include <sstream>
 #include <stdlib.h>
 #include <bits/stdc++.h>
+#include <fstream>
 
 using namespace std;
-void menuCentrale()
+int choix1;
+ void menuCentrale()
+
 {
     cout<<"---------------------------BIENVENUE DANS NOTRE PROGRAMME----------------------------"<<endl;
     cout<<"Faites un choix parmi la liste ci-dessoous: "<<endl;
@@ -31,9 +34,9 @@ void vider_buffer()
     else
         cin.clear();
 }
-void saisie_securise(int a)
+int saisie_securise()
 {
-string temp;
+    string temp;
 
     while(true)
     {
@@ -60,13 +63,15 @@ string temp;
         }
 
         istringstream stream(temp);
-        stream >> a;
+        stream >> choix1;
 
         if (stream.fail() || !stream.eof())
             cerr<<"Erreur saisie incorrect"<<endl;
         else
         break;
     }
+    choix1=stoi(temp);
+
 }
 void decbin (int a)
 {
@@ -642,10 +647,12 @@ void carre_simple_pair()
   cin>>N;
 
 }
+
+
 const int n=50,p=50;
-void p_gauss(float a[n][p])
+float p_gauss(float a[n][p])
 {
-    float p,s,pivot,aide;
+    float x[n], p,s,pivot,aide;
     int i,j,k,ligne;
     for(k=0;k<n-1;k++)
     {
@@ -677,10 +684,10 @@ void p_gauss(float a[n][p])
     {
         s=0;
         for(j=i+1;j<n;j++)
-            s=s+a[i][j];
+            s=s+a[i][j]*x[j];
     }
 
-
+    return x[i];
 
 }
 
@@ -740,16 +747,114 @@ void board()
     }
 }
 
+bool is_unique(string b)
+{
+    ifstream verify;
+    verify.open("code.txt", ios::app);
+    string line;
+    while(getline(verify,line))
+    {
+        if(line == b)
+        {
+            return false;
+        }
+        else
+        {
+            true;
+        }
+    }
+}
+//fonction qui permet de rentrer les information sur un etudiant
+void add_student()
+{
+    string nom;
+    string prenom;
+    string adresse;
+    string code;
+    cout<<"Enregistrez les informations sur l "<<char(130)<<"tudiant"<<endl;
+    ofstream fichier;
+    ofstream verify;//un autre flux creer pour stocker les codes etudiants dans un fichier a part
+    fichier.open("info.txt",ios::app);
+    verify.open("code.txt", ios::app);
+    char k = 'c';
+    while ( k == 'c')
+    {
+
+            fflush(stdin);
+            cout<<"Entrez le nom de l'etudiant: "<<endl;
+            getline(cin,nom);
+
+            cout<<"Entrez le prenom de l'etudiant: "<<endl;
+            getline(cin,prenom);
+
+
+            cout<<"Entrez l'adresse de l'etudiant: "<<endl;
+            getline(cin,adresse);
+
+            cout<<"Entrez le code de l'etudiant: "<<endl;
+            getline(cin,code);
+
+            if(fichier && verify)
+            {
+                /*fichier<<nom<<"\t"<<prenom<<"\t"<<adresse<<"\t"<<code;
+                fichier<<endl;*/
+
+                if (is_unique(code))
+                {
+                    fichier<<nom<<"\t"<<prenom<<"\t"<<adresse<<"\t"<<code;
+                    fichier<<endl;
+                    verify<<code;
+                    verify<<endl;
+                }
+                else
+                {
+                    cout<<"Ce code existe deja!!!"<<endl;
+                }
+                fichier.close();
+                verify.close();
+            }
+            else
+            {
+                cout<<"Le fichier n'a pas "<<char(130)<<"t"<<char(130)<<" cr"<<char(130)<<char(130)<<endl;
+            }
+
+        cout<<"Appuyez sur (c) pour enregistrer un autre etudiant ou sur autre chose pour continuer"<<endl;
+        cin>>k;
+        system("cls");
+
+    }
+
+}
+//fonction pour afficher et imprimer les informations des etudiants
+void display_data()
+{
+    string line;
+    char print;
+    ifstream fichier;
+    fichier.open("info.txt",ios::in);
+    while(getline(fichier,line))
+    {
+        cout<<line<<endl;
+    }
+    cout<<"taper p pour imprimer le fichier"<<endl;
+    cin>>print;
+    if( int (print)==49)
+    {
+        system("print info.txt");//commande system utilisé pour imprimer un fichier
+    }
+}
+
 int main()
 {
-    int choix1,choix2,choix3, choixDeRetour, m_lignes,m_colonnes,m_lignes1,m_colonnes1;
+    int choix2,choix3, choixDeRetour, m_lignes,m_colonnes,m_lignes1,m_colonnes1;
     int valeurChoisi;
     string valeurBinaire;
     do
     {
 
     menuCentrale();
-        saisie_securise(choix1);
+        saisie_securise();
+        cout<<"choix1="<<choix1<<endl;
         system("cls");
         switch(choix1)
         {
@@ -1104,7 +1209,7 @@ int main()
                        cout<<"Le resultat de x est: "<<x<<endl;
                        cout<<"Le resultat de y est: "<<y<<endl;
                     }
-                    cout<<"Si vous voulez continuer pressez 1"<<endl;
+                               cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
                                system("cls");
@@ -1144,32 +1249,44 @@ int main()
            }break;
                case 3:
                 {
+
                     menuEtudiant();
                     cin>>choix1;
+                    do{
                     switch(choix1)
                     {
                     case 1:
                         {
-                            string nom,prenom,code,adresse;
-                         cout<<"Veuillez saisir les informations suivantes sur un etudiant: "<<endl;
-                        cout<<"Nom: ";
-                        cin>>nom;
-                        cout<<"Prenom: ";
-                        cin>>prenom;
-                        cout<<"Code: ";
-                        cin>>code;
-                        cout<<"Adresse: ";
-                        cin>>adresse;
+                                add_student();
+                                cout<<"Pressez sur 0 pour retourner au menu principal ou 1 pour aller au menu etudiant"<<endl;
+                                cin>>choixDeRetour;
+                                if(choixDeRetour==1)
+                                    {
+                                        menuEtudiant();
+                                        cin>>choix1;
+                                    }
+                            if(choixDeRetour==0)
+                               main();
                         }break;
+
                     case 2:
                         {
-
+                            display_data();
+                            menuEtudiant();
+                                cin>>choix1;
+                                break;
+                               cout<<"Pour retourner au menu principal presser 0"<<endl;
+                               cin>>choixDeRetour;
+                               system("cls");
+                               if(choixDeRetour==0)
+                                main();
                         }break;
                     case 3:
                         {
 
                         }break;
                     }
+                }while(choix1>=1 && choix1<=3);
                 }break;
                case 4:
                 {
