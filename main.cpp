@@ -640,55 +640,179 @@ void carre_double_pair()
         cout<<endl;
     }
 }
-void carre_simple_pair()
+void remplir_tab(int* p,int* tab,int l,int c)
 {
-  int N,k,i,j,L,U,X;
-  cout<<"Entrez la dimension du carre simplement pair: "<<endl;
-  cin>>N;
+    int k=0;
+    for(int i=0;i<l;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            p[k]=tab[k];
+            k++;
+        }
+    }
+}
 
+void remplir_tab(float* p,float* tab,int l,int c)
+{
+    int k=0;
+    for(int i=0;i<l;i++)
+    {
+        for(int j=0;j<c;j++)
+        {
+            p[k]=tab[k];
+            k++;
+        }
+    }
+}
+
+void ajout_valeur(int& val1,int& val2,int& val3,int& val4,int i,int j,int k,int L,int x,int n)//en utilisant la methode LUX
+{
+    if( (i==(L*2)-2 && j==n/2) || (i==(L*2)&& j!=n/2) )//cas de U
+    {
+        val1=k+3;
+        val2=k+2;
+        val3=k+1;
+        val4=k;
+    }
+    else if(x-1!=0 && i>=(L*2)+2)//cas de X
+    {
+        val1=k+3;
+        val2=k+1;
+        val3=k+2;
+        val4=k;
+    }
+    else//cas de L
+    {
+        val1=k;
+        val2=k+2;
+        val3=k+1;
+        val4=k+3;
+    }
+}
+void carre_simple_pair(int *p,int n)
+{
+    int tab[n][n],i,j,k;
+    int x=((n/2)-1)/2, L=x+1;
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            tab[i][j]=0;
+        }
+    }
+    i=0;
+    j=n/2;
+    ajout_valeur(tab[i][j],tab[i+1][j],tab[i+1][j-1],tab[i][j-1],i,j,1,L,x,n);
+    for(k=5;k<=n*n;k+=4)
+    {
+        i-=2;
+        j+=2;
+        if(i>=0 && j<n && tab[i][j]==0)//case ok
+        {
+             ajout_valeur(tab[i][j],tab[i+1][j],tab[i+1][j-1],tab[i][j-1],i,j,k,L,x,n);
+        }
+        else if(i>=0 && j<n && tab[i][j]!=0)//case occupe
+        {
+            i+=4;
+            j-=2;
+            ajout_valeur(tab[i][j],tab[i+1][j],tab[i+1][j-1],tab[i][j-1],i,j,k,L,x,n);
+        }
+        else if(i<0 && j<n)//debordement en haut
+        {
+            i=n-2;
+            ajout_valeur(tab[i][j],tab[i+1][j],tab[i+1][j-1],tab[i][j-1],i,j,k,L,x,n);
+        }
+        else if(i>=0 && j>=n)//debordement a droite
+        {
+            j=1;
+            ajout_valeur(tab[i][j],tab[i+1][j],tab[i+1][j-1],tab[i][j-1],i,j,k,L,x,n);
+        }
+        else
+        {
+            i+=4;
+            j-=2;
+            ajout_valeur(tab[i][j],tab[i+1][j],tab[i+1][j-1],tab[i][j-1],i,j,k,L,x,n);
+        }
+    }
+    remplir_tab(p,(int*)tab,n,n);
+    for(i=0;i<n;i++)
+    {
+        for(j=0;j<n;j++)
+        {
+            cout<<"["<<tab[i][j]<<"]";
+        }
+        cout<<endl;
+    }
 }
 
 
-const int n=50,p=50;
-float p_gauss(float a[n][p])
+void p_gauss(float *m1,int l,int c,int &permute)
 {
-    float x[n], p,s,pivot,aide;
-    int i,j,k,ligne;
-    for(k=0;k<n-1;k++)
+    permute=1;
+    int i,j, p=0,k;
+    float x, maxi, m[l][c];
+    remplir_tab((float*)m,m1,l,c);
+    for(j=0;j<c;j++)
     {
-       pivot=0;
-       for(i=k;i<n;i++)
-       {
-           if(abs(a[i][k])>pivot)
-           {
-               pivot=abs(a[i][k]);
-               ligne=i;
-           }
-       }
-       for(j=k;j<n;j++)
-       {
-           aide=a[k][j];
-           a[k][j]=a[ligne][j];
-           a[ligne][j]=aide;
-           if(a[k][k]==0)
-            cout<<"Matrice singuliere"<<endl;
-       }
-       for(i=k+1;i<n;i++)
-       {
-           p=a[i][k]/a[k][k];
-           for(j=k;j<n;j++)
-            a[i][j]=a[i][j]-p*a[k][j];
-       }
+        maxi=m[p][j];
+        k=p;
+        for(i=p+1;i<l;i++)
+        {
+            if(maxi<abs(m[i][j]))
+            {
+                maxi=m[i][j];
+                k=i;
+            }
+        }
+        if(maxi!=0)
+        {
+            if(k!=p)
+            {
+                permute++;
+                for(i=0;i<c;i++)
+                {
+                    maxi=m[k][i];
+                    m[k][i]=m[p][i];
+                    m[p][i]=maxi;
+                }
+            }
+            for(i=p+1;i<l;i++)
+            {
+                x=-m[i][j];
+                for(k=j;k<c;k++)
+                {
+                    m[i][k]+=(x/ m[p][j]) * m[p][k] ;
+                }
+            }
+        }
+        p++;
     }
-    for(i=n-1;i>=0;i--)
+    remplir_tab(m1,(float*)m,l,c);
+}
+
+float determinant(float *m,int n)
+{
+    float m1[n][n],delta=1;
+    int i,j;
+    int permute;
+    remplir_tab((float*)m1,m,n,n);
+    p_gauss((float*)m1,n,n,permute);
+    for(i=0;i<n;i++)
     {
-        s=0;
-        for(j=i+1;j<n;j++)
-            s=s+a[i][j]*x[j];
+        for(j=0;j<n;j++)
+        {
+            if(i==j)
+            {
+                delta*=m1[i][j];
+            }
+        }
     }
-
-    return x[i];
-
+    if(permute%2==0)
+    {
+        delta*=-1;
+    }
+    return delta;
 }
 
 void menuEtudiant()
@@ -841,6 +965,50 @@ void display_data()
     if( int (print)==49)
     {
         system("print info.txt");//commande system utilisé pour imprimer un fichier
+    }
+}
+void AZ_data()
+{
+    string ligne,temp;
+    int nb_ligne=0;
+    char afficher;
+    ifstream fichier;
+    int i=0;
+    fichier.open("info.txt",ios::in);
+    while(getline(fichier,ligne))
+        nb_ligne++;
+    string info[nb_ligne];
+    while(getline(fichier,ligne))
+    {
+        info[i]=ligne;
+
+        if(int(info[i][0])>97 && int (info[i][0])<122)
+            info[i][0]=char(int(info[i][0])-32);
+        i++;
+    }
+    fichier.close();
+
+
+    for(int p=0;p<nb_ligne;p++)
+    {
+        for(int i=0;i<nb_ligne-p;i++)
+        {
+            temp=info[i];
+            info[i]=info[i+1];
+            info[i+1]=temp;
+        }
+    }
+
+    for(int i=0;i<nb_ligne;i++)
+        cout<<info[i]<<endl;
+
+    cout<<"Tapez (p) pour imprimer"<<endl;
+    cin>>afficher;
+    if(afficher=='p')
+    {
+        fichier.open("info.txt",ios::in);
+        system("print info.txt");
+        fichier.close();
     }
 }
 
@@ -1074,6 +1242,15 @@ int main()
                         cin>>choix1;
                         if(choix1==1)
                             carre_double_pair();
+                        if(choix1==2)
+                        {
+                            int n;
+                            cout<<"Entrez la valeur du carre simplement pair"<<endl;
+                            cin>>n;
+                            int p[n][n];
+                            carre_simple_pair(*p,n);
+                        }
+
                     cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
                                cin>>choixDeRetour;
@@ -1242,7 +1419,7 @@ int main()
                         cout<<endl;
                     }
 
-                    float det=1;
+                    determinant(*tab[m_lignes][m_colonnes],m_lignes);
 
                 }break;
                }
@@ -1284,7 +1461,16 @@ int main()
                         }break;
                     case 3:
                         {
-
+                             AZ_data();
+                            cout<<"Pour retourner au menu principal presser 0 ou 1 pour aller au menu etudiant"<<endl;
+                            cin>>choixDeRetour;
+                            if(choixDeRetour==1)
+                            {
+                                menuEtudiant();
+                                cin>>choix1;
+                            }
+                            if(choixDeRetour==0)
+                                main();
                         }break;
                     }
                 }while(choix1>=1 && choix1<=3);
