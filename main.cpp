@@ -6,23 +6,24 @@
 #include <fstream>
 
 using namespace std;
-int choix1;
  void menuCentrale()
 
 {
     cout<<"---------------------------BIENVENUE DANS NOTRE PROGRAMME----------------------------"<<endl;
-    cout<<"Faites un choix parmi la liste ci-dessoous: "<<endl;
-    cout<<"1………………………….. Op"<<char(130)<<"ration de codage/D"<<char(130)<<"codage/Transcodage"<<endl;
-    cout<<"2………………………….. Operations math"<<char(130)<<"matiques"<<endl;
-    cout<<"3………………………….. Gestion d’information sur un "<<char(130)<<"tudiant"<<endl;
-    cout<<"4………………………….. Ma r"<<char(130)<<"alisation"<<endl;
+    cout<<"-------------------------------------------------------------------------------------"<<endl;
+    cout<<"| Faites un choix parmi la liste ci-dessoous:                                       |"<<endl;
+    cout<<"|    1............ Op"<<char(130)<<"ration de codage/D"<<char(130)<<"codage/Transcodage                         |"<<endl;
+    cout<<"|    2............ Operations math"<<char(130)<<"matiques                                         |"<<endl;
+    cout<<"|    3............ Gestion d information sur un "<<char(130)<<"tudiant                            |"<<endl;
+    cout<<"|    4............ Ma r"<<char(130)<<"alisation                                                   |"<<endl;
+    cout<<"-------------------------------------------------------------------------------------"<<endl;
 }
 void choice()//En definir un pour chaque choix et non un seul
 {
-    cout<<"1……………..  Binaire"<<endl;
-	cout<<"2……………..  Octal"<<endl;
-	cout<<"3……………..  Hexad"<<char(130)<<"cimal"<<endl;
-	cout<<"4……………..  D"<<char(130)<<"cimal"<<endl;
+    cout<<"1.......  Binaire"<<endl;
+	cout<<"2.......  Octal"<<endl;
+	cout<<"3.......  Hexad"<<char(130)<<"cimal"<<endl;
+	cout<<"4.......  D"<<char(130)<<"cimal"<<endl;
 }
 void vider_buffer()
 {
@@ -34,7 +35,7 @@ void vider_buffer()
     else
         cin.clear();
 }
-int saisie_securise()
+int saisie_securise(int a)
 {
     string temp;
 
@@ -63,16 +64,172 @@ int saisie_securise()
         }
 
         istringstream stream(temp);
-        stream >> choix1;
+        stream >> a;
 
         if (stream.fail() || !stream.eof())
             cerr<<"Erreur saisie incorrect"<<endl;
         else
         break;
     }
-    choix1=stoi(temp);
-
+    a=stoi(temp);
+    return a;
 }
+int saisie_securise1(int a)
+{
+    string temp;
+
+    while(true)
+    {
+        getline(cin,temp);
+
+
+        if (cin.eof() || cin.bad())
+        {
+            cerr<<"Une erreur interne est survenue"<<endl;
+
+        if (cin.eof())
+        {
+            break;
+        }
+
+        vider_buffer();
+        continue;
+        }
+        else if(cin.fail() || temp.find_first_not_of("0123456789-,.")!= string::npos)
+        {
+            cerr<<"Erreur saisie incorrect"<<endl;
+            vider_buffer();
+            continue;
+        }
+
+        istringstream stream(temp);
+        stream >> a;
+
+        if (stream.fail() || !stream.eof())
+            cerr<<"Erreur saisie incorrect"<<endl;
+        else
+        break;
+    }
+    a=stoi(temp);
+    return a;
+}
+int saisie_securiseBin(int a)
+{
+    string temp;
+
+    while(true)
+    {
+        getline(cin,temp);
+
+
+        if (cin.eof() || cin.bad())
+        {
+            cerr<<"Une erreur interne est survenue"<<endl;
+
+        if (cin.eof())
+        {
+            break;
+        }
+
+        vider_buffer();
+        continue;
+        }
+        else if(cin.fail() || temp.find_first_not_of("01")!= string::npos)
+        {
+            cerr<<"Erreur saisie incorrect"<<endl;
+            vider_buffer();
+            continue;
+        }
+
+        istringstream stream(temp);
+        stream >> a;
+
+        if (stream.fail() || !stream.eof())
+            cerr<<"Erreur saisie incorrect"<<endl;
+        else
+        break;
+    }
+    a=stoi(temp);
+    return a;
+}
+string saisie_securiseBin(string a)
+{
+    string temp;
+
+    while(true)
+    {
+        getline(cin,temp);
+
+
+        if (cin.eof() || cin.bad())
+        {
+            cerr<<"Une erreur interne est survenue"<<endl;
+
+        if (cin.eof())
+        {
+            break;
+        }
+
+        vider_buffer();
+        continue;
+        }
+        else if(cin.fail() || temp.find_first_not_of("01")!= string::npos)
+        {
+            cerr<<"Erreur saisie incorrect"<<endl;
+            vider_buffer();
+            continue;
+        }
+
+        istringstream stream(temp);
+        stream >> a;
+
+        if (stream.fail() || !stream.eof())
+            cerr<<"Erreur saisie incorrect"<<endl;
+        else
+        break;
+    }
+    return a;
+}
+
+string saisie_securiseHex(string a)
+{
+    string temp;
+
+    while(true)
+    {
+        getline(cin,temp);
+
+
+        if (cin.eof() || cin.bad())
+        {
+            cerr<<"Une erreur interne est survenue"<<endl;
+
+        if (cin.eof())
+        {
+            break;
+        }
+
+        vider_buffer();
+        continue;
+        }
+        else if(cin.fail() || temp.find_first_not_of("0123456789AaBbCcDdEeFf")!= string::npos)
+        {
+            cerr<<"Erreur saisie incorrect"<<endl;
+            vider_buffer();
+            continue;
+        }
+
+        istringstream stream(temp);
+        stream >> a;
+
+        if (stream.fail() || !stream.eof())
+            cerr<<"Erreur saisie incorrect"<<endl;
+        else
+        break;
+    }
+    return a;
+}
+
 void decbin (int a)
 {
     int x=a,y=a;
@@ -224,12 +381,6 @@ void dechexa (int a)
     string res_reversed(res);
     reverse(res_reversed.begin(),res_reversed.end());
     cout<<a<<"(dec) = "<<res_reversed<<"(hexa)"<<endl;
-}
-void decdec (float a)
-{
-    char res[1000];
-    itoa(a,res,10);
-    cout<<a<<"(dec) = "<<res<<"(dec)"<<endl;
 }
 void bindec (string a)
 {
@@ -595,9 +746,9 @@ void hexoct(string a)
 
 void menuchoixUn()
 {
-    cout<<"1……………… D"<<char(130)<<"cimal en"<<endl;
-	cout<<"2……………. Binaire en"<<endl;
-	cout<<"3……………. Hexad"<<char(130)<<"cimal en"<<endl;
+    cout<<"1...... D"<<char(130)<<"cimal en"<<endl;
+	cout<<"2...... Binaire en"<<endl;
+	cout<<"3...... Hexad"<<char(130)<<"cimal en"<<endl;
 }
 void menuChoixDeux()
 {
@@ -610,7 +761,12 @@ void carre_double_pair()
 {
     int N,k,i,j;
     cout<<"Veuillez entrer la valeur du carre doublement pair: "<<endl;
-    cin>>N;
+    N=saisie_securise(N);
+    while(N%4!=0)
+    {
+        cout<<"La taille doit etre divisible par 4.Reesayer!"<<endl;
+        N=saisie_securise(N);
+    }
     int tab[N][N];
     k=1;
     for(i=0;i<N;i++)
@@ -628,12 +784,12 @@ void carre_double_pair()
     {
         for(j=0;j<N;j++)
         {
-            bool r1=(i-1)%4==0 || i%4==0;
-            bool r2=(j-1)%4==0 || j%4==0;
+            bool r1=(i+1)%4==0 || i%4==0;
+            bool r2=(j+1)%4==0 || j%4==0;
 
             if((r1 && !r2) || (!r1 && r2))
             {
-                tab[i][j]=(N*N)-tab[i][j];
+                tab[i][j]=((N*N)+1)-tab[i][j];
             }
             cout<<"["<<tab[i][j]<<"]";
         }
@@ -884,7 +1040,7 @@ bool is_unique(string b)
         }
         else
         {
-            true;
+            return true;
         }
     }
 }
@@ -920,8 +1076,6 @@ void add_student()
 
             if(fichier && verify)
             {
-                /*fichier<<nom<<"\t"<<prenom<<"\t"<<adresse<<"\t"<<code;
-                fichier<<endl;*/
 
                 if (is_unique(code))
                 {
@@ -934,14 +1088,12 @@ void add_student()
                 {
                     cout<<"Ce code existe deja!!!"<<endl;
                 }
-                fichier.close();
-                verify.close();
+
             }
             else
             {
                 cout<<"Le fichier n'a pas "<<char(130)<<"t"<<char(130)<<" cr"<<char(130)<<char(130)<<endl;
             }
-
         cout<<"Appuyez sur (c) pour enregistrer un autre etudiant ou sur autre chose pour continuer"<<endl;
         cin>>k;
         system("cls");
@@ -960,11 +1112,17 @@ void display_data()
     {
         cout<<line<<endl;
     }
-    cout<<"taper p pour imprimer le fichier"<<endl;
+    cout<<"taper (p) pour imprimer le fichier ou (e) pour continuer"<<endl;
     cin>>print;
-    if( int (print)==49)
+     while(print!='p' && print!='e' && print!='P' && print!='E')
+     {
+         cout<<"Mauvais caractere.Reessayer"<<endl;
+         cin>>print;
+     }
+    if(print=='p' || print=='P')
     {
-        system("print info.txt");//commande system utilisé pour imprimer un fichier
+        string s =("notepad.exe /p info.txt");
+        system(s.c_str());//commande system utilisé pour imprimer un fichier
     }
 }
 void AZ_data()
@@ -976,7 +1134,13 @@ void AZ_data()
     int i=0;
     fichier.open("info.txt",ios::in);
     while(getline(fichier,ligne))
+    {
         nb_ligne++;
+    }
+    fichier.close();
+    if(nb_ligne>0)
+    {
+        fichier.open("info.txt",ios::in);
     string info[nb_ligne];
     while(getline(fichier,ligne))
     {
@@ -993,50 +1157,65 @@ void AZ_data()
     {
         for(int i=0;i<nb_ligne-p;i++)
         {
-            temp=info[i];
+            if(info[i]>info[i+1])
+            {
+              temp=info[i];
             info[i]=info[i+1];
             info[i+1]=temp;
+            }
+
         }
     }
 
     for(int i=0;i<nb_ligne;i++)
         cout<<info[i]<<endl;
 
-    cout<<"Tapez (p) pour imprimer"<<endl;
-    cin>>afficher;
-    if(afficher=='p')
+    cout<<"Tapez (p) pour imprimer ou (e) pour continuer"<<endl;
+     cin>>afficher;
+     while(afficher!='p' || afficher!='e' || afficher!='P' || afficher!='E')
+     {
+         cout<<"Mauvais caractere.Reessayer"<<endl;
+         cin>>afficher;
+     }
+    if(afficher=='p' || afficher=='P')
     {
+        string s = ("notepad.exe /p info.txt");
+        system(s.c_str());
         fichier.open("info.txt",ios::in);
         system("print info.txt");
         fichier.close();
     }
 }
+    else
+        cout<<"Veullez d'abord entrer des donnees dans le fichier"<<endl;
+}
 
 int main()
 {
-    int choix2,choix3, choixDeRetour, m_lignes,m_colonnes,m_lignes1,m_colonnes1;
+    int choix1,choix2,choix3, choixDeRetour, m_lignes,m_colonnes,m_lignes1,m_colonnes1;
     int valeurChoisi;
     string valeurBinaire;
     do
     {
 
     menuCentrale();
-        saisie_securise();
-        cout<<"choix1="<<choix1<<endl;
+        choix1=saisie_securise(choix1);
         system("cls");
         switch(choix1)
         {
         case 1:
             {
+                do{
                menuchoixUn();
-               cin>>choix2;
+               choix2=saisie_securise(choix2);
                system("cls");
-               choice();
                switch (choix2)
                {
                case 1:
                     {
-                      cin>>choix3;
+                        do{
+                                choice();
+                      choix3=saisie_securise(choix3);
                       system("cls");
                       switch (choix3)
                       {
@@ -1044,12 +1223,11 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en binaire: ";
-                               cin>>valeurChoisi;
+                               valeurChoisi=saisie_securise(valeurChoisi);
                                decbin(valeurChoisi);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
-                               //retour(choixDeRetour);
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                 system("cls");
                                }while(choixDeRetour==1);
                                main();
@@ -1058,13 +1236,12 @@ int main()
                             {
                                do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en octal: ";
-                               cin>>valeurChoisi;
+                               valeurChoisi=saisie_securise(valeurChoisi);
                                decoctal(valeurChoisi);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
@@ -1072,49 +1249,44 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en hexadecimal: ";
-                               cin>>valeurChoisi;
+                               valeurChoisi=saisie_securise(valeurChoisi);
                                dechexa(valeurChoisi);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
                        case 4:
                             {
                                 do{
-                                cout<<"Entrez le d"<<char(130)<<"cimal que vous voulez mettre en decimal: ";
-                               cin>>valeurChoisi;
-                               decdec(valeurChoisi);
+                                cout<<"Un nombre d"<<char(130)<<"cimal est "<<char(130)<<"gal "<<char(133)<<" lui-m"<<char(136)<<"me en d"<<char(130)<<"cimal"<<endl;
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
-
-                      }
+                       }
+                    }while(choix3<1 || choix3>4);
                     }break;
                        case 2:
                         {
-                            cin>>choix3;
+                            do{
+                                    choice();
+                            choix3=saisie_securise(choix3);
                       switch (choix3)
                       {
                       case 1:
                             {
                                 do{
-                                cout<<"Entrez le binaire que vous voulez mettre en binaire: ";
-                               cin>>valeurBinaire;
-                                cout<<valeurBinaire<<"(bin) = "<<valeurBinaire<<"(bin)"<<endl;
+                                cout<<"Un binaire est "<<char(130)<<"gal "<<char(133)<<" lui-m"<<char(136)<<"me en binaire: ";
                                 cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
@@ -1122,13 +1294,12 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez le binaire que vous voulez mettre en octal: ";
-                               cin>>valeurBinaire;
+                               valeurBinaire=saisie_securiseBin(valeurBinaire);
                                binoctal(valeurBinaire);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
@@ -1136,13 +1307,12 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez le binaire que vous voulez mettre en hexadecimal: ";
-                               cin>>valeurBinaire;
+                               valeurBinaire=saisie_securiseBin(valeurBinaire);
                                binHex(valeurBinaire);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
@@ -1150,34 +1320,36 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez le binaire que vous voulez mettre en decimal: ";
-                               cin>>valeurBinaire;
+                               valeurBinaire=saisie_securiseBin(valeurBinaire);
                                bindec(valeurBinaire);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
-                      }
+                        }
+                      }while(choix3<1 || choix3>4);
                         }break;
                        case 3:
                         {
-                            cin>>choix3;
+                            do{
+                                    choice();
+                            choix3=saisie_securise(choix3);
                       switch (choix3)
                       {
+
                       case 1:
                             {
                                 do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en binaire: ";
-                               cin>>valeurBinaire;
+                               valeurBinaire=saisie_securiseHex(valeurBinaire);
                                 hexabin(valeurBinaire);
                                 cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
@@ -1185,27 +1357,23 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en octal: ";
-                               cin>>valeurBinaire;
+                               valeurBinaire=saisie_securiseHex(valeurBinaire);
                                hexoct(valeurBinaire);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
                        case 3:
                             {
                                 do{
-                                cout<<"Entrez l'hexadecimal que vous voulez mettre en hexadecimal: ";
-                               cin>>valeurBinaire;
-                               cout<<valeurBinaire<<"(hex) = "<<valeurBinaire<<"(hex)"<<endl;
+                                cout<<"Un nombre hexadecimal est "<<char(130)<<"gal "<<char(133)<<" lui-m"<<char(136)<<"me en hexadecimal.";
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
@@ -1213,47 +1381,57 @@ int main()
                             {
                                 do{
                                 cout<<"Entrez l'hexadecimal que vous voulez mettre en decimal: ";
-                               cin>>valeurBinaire;
+                               valeurBinaire=saisie_securiseHex(valeurBinaire);
                                hexadec(valeurBinaire);
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                             }break;
-                      }
+                          }
+                      }while(choix3<1 || choix3>4);
                }break;
-            }break;
+            }
+                }while(choix2<1 || choix2>3);
         }break;
     case 2:
            {
+               do{
                menuChoixDeux();
-               cin>>choix1;
+               choix1=saisie_securise(choix1);
+               system("cls");
                switch(choix1)
                {
                case 1:
                 {
                     do
                     {
-                        cout<<"Pressez 1 pour un carre magique d ordre doublement pair"<<endl;
-                        cout<<"Pressez 2 pour un carre magique d ordre simplement pair"<<endl;
-                        cin>>choix1;
-                        if(choix1==1)
+                        cout<<"Pressez 0 pour un carre magique d ordre doublement pair"<<endl;
+                        cout<<"Pressez 1 pour un carre magique d ordre simplement pair"<<endl;
+                        choix1=saisie_securiseBin(choix1);
+
+
+                        if(choix1==0)
                             carre_double_pair();
-                        if(choix1==2)
+                        if(choix1==1)
                         {
                             int n;
                             cout<<"Entrez la valeur du carre simplement pair"<<endl;
-                            cin>>n;
+                            n=saisie_securise(n);
+                            while(n%2!=0 || n<=2 || n%4==0)
+                            {
+                                cout<<"Mauvais choix.Reessayez"<<endl;
+                                n=saisie_securise(n);
+                            }
                             int p[n][n];
                             carre_simple_pair(*p,n);
                         }
 
                     cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
                     }while(choixDeRetour==1);
                     main();
@@ -1263,24 +1441,24 @@ int main()
                     do
                     {
                         cout<<"Entrer le nombre de lignes de votre matrice1"<<endl;
-                        cin>>m_lignes;
+                        m_lignes=saisie_securise(m_lignes);
                         cout<<"Entrer le nombre de colonnes de votre matrice1"<<endl;
-                        cin>>m_colonnes;
+                        m_colonnes=saisie_securise(m_colonnes);
                         cout<<"Entrer le nombre de lignes de votre matrice2"<<endl;
-                        cin>>m_lignes1;
+                        m_lignes1=saisie_securise(m_lignes1);
                         cout<<"Entrer le nombre de colonnes de votre matrice2"<<endl;
-                        cin>>m_colonnes1;
+                        m_colonnes1=saisie_securise(m_colonnes1);
                         while(m_colonnes!=m_lignes1)
                         {
                             cout<<"Erreur!!Le nombre de colonnes de matrice1 doit egales au nombre de lignes de matrice2.Veuillez reesayer"<<endl;
-                            cout<<"Entrer le nombre de lignes de votre matrice1"<<endl;//mettre pause peut etre
-                        cin>>m_lignes;
+                            cout<<"Entrer le nombre de lignes de votre matrice1"<<endl;
+                        m_lignes=saisie_securise(m_lignes);
                         cout<<"Entrer le nombre de colonnes de votre matrice1"<<endl;
-                        cin>>m_colonnes;
+                        m_colonnes=saisie_securise(m_colonnes);
                         cout<<"Entrer le nombre de lignes de votre matrice2"<<endl;
-                        cin>>m_lignes1;
+                        m_lignes1=saisie_securise(m_lignes1);
                         cout<<"Entrer le nombre de colonnes de votre matrice2"<<endl;
-                        cin>>m_colonnes1;
+                        m_colonnes1=saisie_securise(m_colonnes1);
                         }
                         int a[m_lignes][m_colonnes];
                         int b[m_lignes1][m_colonnes1];
@@ -1301,13 +1479,24 @@ int main()
                                 cin>>b[m][n];
                             }
                         }
-                        /*for(int m=1;m<=m_lignes1;m++)
+                         cout<<"La premiere matrice"<<endl;
+                        for(int k=0;k<m_lignes;k++)
                         {
-                            for(int n=1;n<=m_colonnes1;n++)
+                            for(int l=0;l<m_colonnes;l++)
                             {
-                                cout<<b[m][n];
+                                cout<<"["<<a[k][l]<<"]";
                             }
-                        }*/
+                            cout<<endl;
+                        }
+                         cout<<"la deuxieme matrice"<<endl;
+                        for(int k=0;k<m_lignes;k++)
+                        {
+                            for(int l=0;l<m_colonnes;l++)
+                            {
+                                cout<<"["<<b[k][l]<<"]";
+                            }
+                            cout<<endl;
+                        }
                         cout<<"Le resultat est: "<<endl;
                         int r[m_lignes][m_colonnes1];
                            for(int k=0;k<m_lignes;k++)
@@ -1333,7 +1522,7 @@ int main()
                           }
                         cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
                     }while(choixDeRetour==1);
                     main();
@@ -1343,31 +1532,30 @@ int main()
                     float a,b,z,a1,b1,z1,y,x,temp,temp1,temp2;
                     do{
                     cout<<"Entrer la valeur de z,a et b pour la premiere equation ax+by=z: "<<endl;
-                    cin>>z;
-                    cin>>a;
-                    cin>>b;
+                    z=saisie_securise1(z);
+                    a=saisie_securise1(a);
+                    b=saisie_securise1(b);
                     cout<<"Entrer la valeur de z,a et b pour la deuxieme equation ax+by=z: "<<endl;
-                    cin>>z1;
-                    cin>>a1;
-                    cin>>b1;
+                    z1=saisie_securise1(z1);
+                    a1=saisie_securise1(a1);
+                    b1=saisie_securise1(b1);
                     while((a || b || a1 || b1)==0)
                     {
                         cout<<"Les coefficient de x et y doivent etre different de 0. Reesayer"<<endl;
                         cout<<"Entrer la valeur de z,a et b pour la premiere equation ax+by=z: "<<endl;
-                    cin>>z;
-                    cin>>a;
-                    cin>>b;
+                    z=saisie_securise1(z);
+                    a=saisie_securise1(a);
+                    b=saisie_securise1(b);
                     cout<<"Entrer la valeur de z,a et b pour la deuxieme equation ax+by=z: "<<endl;
-                    cin>>z1;
-                    cin>>a1;
-                    cin>>b1;
+                    z1=saisie_securise1(z1);
+                    a1=saisie_securise1(a1);
+                    b1=saisie_securise1(b1);
                     }
                     if(a+a1 != 0)
                     {
                         temp=a;
                         temp1=b;
                         temp2=z;
-                       //a=(-a1/a)*a;
                        b=(-a1/a)*b;
                        z=(-a1/a)*z;
                        b1+=b;
@@ -1388,21 +1576,19 @@ int main()
                     }
                                cout<<"Si vous voulez continuer pressez 1"<<endl;
                                cout<<"Pour retourner au menu principal presser 0"<<endl;
-                               cin>>choixDeRetour;
+                               choixDeRetour=saisie_securiseBin(choixDeRetour);
                                system("cls");
-                               //retour(choixDeRetour);
                                }while(choixDeRetour==1);
                                main();
                 }break;
                case 4:
                 {
-                    int m_lignes,m_colonnes,i,j;
-                    //detMatrix();
+                    int i,j;
                     cout<<"Entrez le nombre de lignes de votre matrice: "<<endl;
-                    cin>>m_lignes;
+                    m_lignes=saisie_securise(m_lignes);
                     cout<<"Entrez le nombre de colonnes de votre matrice: "<<endl;
-                    cin>>m_colonnes;
-                    int tab[m_lignes][m_colonnes];
+                    m_colonnes=saisie_securise(m_colonnes);
+                    float tab[m_lignes][m_colonnes];
                     cout<<"Entrez les valeurs de la matrice: "<<endl;
                     for(i=0;i<m_lignes;i++)
                     {
@@ -1418,31 +1604,32 @@ int main()
                             cout<<"["<<tab[i][j]<<"]";
                         cout<<endl;
                     }
-
-                    determinant(*tab[m_lignes][m_colonnes],m_lignes);
+                    if(m_lignes == m_colonnes)
+                    cout<<"Le determinant est: "<<determinant((float*)tab,m_lignes)<<endl;
+                    else
+                        cout<<"Nous ne pouvons calculer le determinant d'une matrice non carre"<<endl;
 
                 }break;
                }
+               }while(choix1<1 || choix1>4);
            }break;
                case 3:
                 {
-
-                    menuEtudiant();
-                    cin>>choix1;
                     do{
+                    menuEtudiant();
+                    choix1=saisie_securise(choix1);
                     switch(choix1)
                     {
                     case 1:
                         {
                                 add_student();
                                 cout<<"Pressez sur 0 pour retourner au menu principal ou 1 pour aller au menu etudiant"<<endl;
-                                cin>>choixDeRetour;
+                                choixDeRetour=saisie_securiseBin(choixDeRetour);
                                 if(choixDeRetour==1)
                                     {
                                         menuEtudiant();
                                         cin>>choix1;
                                     }
-                            if(choixDeRetour==0)
                                main();
                         }break;
 
@@ -1450,30 +1637,28 @@ int main()
                         {
                             display_data();
                             cout<<"Pour retourner au menu principal presser 0 ou 1 pour aller au menu etudiant"<<endl;
-                            cin>>choixDeRetour;
+                            choixDeRetour=saisie_securiseBin(choixDeRetour);
                             if(choixDeRetour==1)
                             {
                                 menuEtudiant();
                                 cin>>choix1;
                             }
-                            if(choixDeRetour==0)
                                 main();
                         }break;
                     case 3:
                         {
                              AZ_data();
                             cout<<"Pour retourner au menu principal presser 0 ou 1 pour aller au menu etudiant"<<endl;
-                            cin>>choixDeRetour;
+                            choixDeRetour=saisie_securiseBin(choixDeRetour);
                             if(choixDeRetour==1)
                             {
                                 menuEtudiant();
                                 cin>>choix1;
                             }
-                            if(choixDeRetour==0)
                                 main();
                         }break;
                     }
-                }while(choix1>=1 && choix1<=3);
+                }while(choix1<1 || choix1>3);
                 }break;
                case 4:
                 {
@@ -1568,7 +1753,6 @@ cout<<"Si vous voulez continuer pressez 1"<<endl;
                 }break;
     }
 }while(choix1<=0 || choix1>=5);
-
 
     return 0;
 }
