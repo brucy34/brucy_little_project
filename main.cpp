@@ -1127,7 +1127,7 @@ void display_data()
 }
 void AZ_data()
 {
-    string ligne,temp;
+    string ligne;
     int nb_ligne=0;
     char afficher;
     ifstream fichier;
@@ -1152,7 +1152,7 @@ void AZ_data()
     }
     fichier.close();
 
-
+    string temp;
     for(int p=0;p<nb_ligne;p++)
     {
         for(int i=0;i<nb_ligne-p;i++)
@@ -1172,7 +1172,7 @@ void AZ_data()
 
     cout<<"Tapez (p) pour imprimer ou (e) pour continuer"<<endl;
      cin>>afficher;
-     while(afficher!='p' || afficher!='e' || afficher!='P' || afficher!='E')
+     while(afficher!='p' && afficher!='e' && afficher!='P' && afficher!='E')
      {
          cout<<"Mauvais caractere.Reessayer"<<endl;
          cin>>afficher;
@@ -1186,7 +1186,8 @@ void AZ_data()
         fichier.close();
     }
 }
-    else
+
+else
         cout<<"Veullez d'abord entrer des donnees dans le fichier"<<endl;
 }
 
@@ -1622,39 +1623,30 @@ int main()
                     {
                     case 1:
                         {
+                                do{
                                 add_student();
-                                cout<<"Pressez sur 0 pour retourner au menu principal ou 1 pour aller au menu etudiant"<<endl;
+                                cout<<"Pressez sur 0 pour retourner au menu principal ou 1 pour reajouter"<<endl;
                                 choixDeRetour=saisie_securiseBin(choixDeRetour);
-                                if(choixDeRetour==1)
-                                    {
-                                        menuEtudiant();
-                                        cin>>choix1;
-                                    }
+                                }while(choixDeRetour==1);
                                main();
                         }break;
 
                     case 2:
                         {
+                            do{
                             display_data();
-                            cout<<"Pour retourner au menu principal presser 0 ou 1 pour aller au menu etudiant"<<endl;
+                            cout<<"Pour retourner au menu principal presser 0 ou 1 pour reafficher"<<endl;
                             choixDeRetour=saisie_securiseBin(choixDeRetour);
-                            if(choixDeRetour==1)
-                            {
-                                menuEtudiant();
-                                cin>>choix1;
-                            }
+                            }while(choixDeRetour==1);
                                 main();
                         }break;
                     case 3:
                         {
+                            do{
                              AZ_data();
-                            cout<<"Pour retourner au menu principal presser 0 ou 1 pour aller au menu etudiant"<<endl;
+                            cout<<"Pour retourner au menu principal presser 0 ou 1 pour reafficher"<<endl;
                             choixDeRetour=saisie_securiseBin(choixDeRetour);
-                            if(choixDeRetour==1)
-                            {
-                                menuEtudiant();
-                                cin>>choix1;
-                            }
+                            }while(choixDeRetour);
                                 main();
                         }break;
                     }
